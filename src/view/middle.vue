@@ -5,7 +5,7 @@
         <header>
           <h1>{{ item.title }}</h1>
         </header>
-        <p v-html="item.content"></p>
+        <p v-html="item.content" @click="toPage(item.id)"></p>
         <footer>
           {{ item.createdate }}
           <span v-for="(item, index) in item.tagList" :key="index">
@@ -21,28 +21,23 @@
 import { api } from "@/http.js";
 //highlight.js样式
 import "highlight.js/styles/gruvbox-dark.css";
+import { markdownit } from "@/markdownit";
 export default {
   data() {
     return {
       list: [],
     };
   },
+  methods: {
+    toPage(id) {
+      this.$router.push("page/" + id);
+    },
+  },
   created() {
     api
       .get("article")
       .then((res) => {
-        //使用marked-it解析后使用highlight.js，不能单独使用highlight.js,因为<pre><code>已经被markdown-it解析了
-        //除非不使用marked-it使用hightlight.js？
-        let MarkdownIt = require("markdown-it");
-        //创建markdownit对象
-        let markdownit = new MarkdownIt();
-        //markdown-it的语法拓展
-        markdownit.use(require("markdown-it-mark"));
-        markdownit.use(require("markdown-it-ins"));
-        markdownit.use(require("markdown-it-emoji"));
-        //高亮插件
-        markdownit.use(require("markdown-it-highlightjs"));
-
+        console.log(res.data.data);
         //解析markdown
         let contentList = res.data.data;
         for (let item of contentList) {

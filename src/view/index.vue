@@ -1,7 +1,7 @@
 <template>
   <div class="app-body">
     <div class="left-div"><left /></div>
-    <div class="middle-div"><middle /></div>
+    <div class="middle-div"><router-view></router-view></div>
     <div class="right-div"><right /></div>
   </div>
 </template>
@@ -9,13 +9,11 @@
 <script>
 import left from "@/view/left";
 import right from "@/view/right";
-import middle from "@/view/middle";
 
 export default {
   components: {
     left,
     right,
-    middle,
   },
 };
 </script>
