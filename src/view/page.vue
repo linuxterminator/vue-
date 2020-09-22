@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="page">
     <article>
       <p v-html="article"></p>
     </article>
@@ -28,4 +28,13 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+.page {
+  background: white;
+  box-shadow: 0 0 1px #9c9d9e;
+}
+
+article {
+  overflow: hidden;
+}
+</style>

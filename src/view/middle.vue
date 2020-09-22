@@ -54,7 +54,7 @@ export default {
 
 <style>
 header h1 {
-  margin: 0;
+  margin: 10px 0;
 }
 
 .item-div article {
@@ -65,6 +65,7 @@ header h1 {
   height: 20%;
   text-align: left;
   padding: 0 13px;
+  overflow: hidden;
 }
 
 article p {

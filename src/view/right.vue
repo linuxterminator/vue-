@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="newArticle">最新文章</div>
-    <div class="articleTag"></div>
+    <div class="articleTag">标签</div>
   </div>
 </template>
 

@@ -1,6 +1,7 @@
 <template>
   <div id="main">
     <mavon-editor v-model="article.content" />
+    <input placeholder="文章标题" v-model="article.title" />
     <button @click="submitMarkDown">提交</button>
   </div>
 </template>
@@ -11,7 +12,7 @@ export default {
   data() {
     return {
       article: {
-        title: "markdown测试",
+        title: "",
         content: "",
         author: "markdown作者",
         tagList: [],
