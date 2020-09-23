@@ -28,12 +28,12 @@ export default {
 
 .right-div,
 .left-div {
-  width: 400px;
+  width: 280px;
   margin: 10px;
 }
 
 .middle-div {
-  width: 100%;
+  flex-grow: 1;
   margin: 10px;
 }
 </style>

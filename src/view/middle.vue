@@ -1,6 +1,7 @@
 <template>
   <div>
-    <div v-for="(item, index) in list" :key="index" class="item-div">
+    <div v-for="(item, index) in list" :key="index" class="article-item">
+      <div class="articleCover"></div>
       <article>
         <header>
           <h1>{{ item.title }}</h1>
@@ -19,9 +20,8 @@
 
 <script>
 import { api } from "@/http.js";
-//highlight.js样式
-import "highlight.js/styles/gruvbox-dark.css";
 import { markdownit } from "@/markdownit";
+import "highlight.js/styles/gruvbox-dark.css";
 export default {
   data() {
     return {
@@ -57,11 +57,35 @@ header h1 {
   margin: 10px 0;
 }
 
-.item-div article {
+.article-item {
+  width: 100%;
+  height: 250px;
+  box-shadow: 0 0 1px #9c9d9e;
+  background: white;
+  margin-bottom: 17px;
+  display: flex;
+}
+
+.articleCover {
+  width: 280px;
+  height: 230px;
+  margin: auto 10px;
+  /**使用背景图片的方式，直接插入图片有问题，图片容易失真 */
+  background: url("../assets/imgTest.png");
+  background-size: cover;
+}
+
+article {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.article-item article {
   height: 100%;
 }
 
-.item-div header {
+.article-item header {
   height: 20%;
   text-align: left;
   padding: 0 13px;
@@ -71,17 +95,14 @@ header h1 {
 article p {
   height: 50%;
   text-align: left;
-  padding: 0 13px;
+  flex-grow: 1;
+  margin: 0;
+  cursor: pointer;
 }
 
-.item-div {
-  width: 100%;
-  height: 250px;
-  box-shadow: 0 0 1px #9c9d9e;
-  background: white;
-  margin-bottom: 17px;
-}
 article footer {
   padding: 0 13px;
+  height: 35px;
+  line-height: 35px;
 }
 </style>

@@ -3,7 +3,7 @@
     <div class="app-head">
       <navigation />
     </div>
-    <div>
+    <div class="appBody">
       <router-view></router-view>
     </div>
   </div>
@@ -28,12 +28,15 @@ export default {
   color: #565a5f;
   background: #f5f8f9;
   height: 100%;
-  overflow: auto;
 }
 
 .app-head {
   height: 60px;
   background: white;
   box-shadow: 0 0 1px #9c9d9e;
+}
+
+.appBody {
+  background: #f5f8f9;
 }
 </style>

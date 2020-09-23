@@ -1,6 +1,9 @@
 <template>
   <div>
-    <div class="newArticle">最新文章</div>
+    <div class="newArticle">
+      <span>最新文章</span>
+      <div v-for="(item, index) in newArticle" :key="index"></div>
+    </div>
     <div class="articleTag">标签</div>
   </div>
 </template>
@@ -15,6 +18,14 @@ export default {
     };
   },
   created() {
+    api
+      .get("article")
+      .then((res) => {
+        console.log(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
     api
       .get("tag")
       .then((res) => {
