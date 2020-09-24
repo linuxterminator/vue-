@@ -10,15 +10,22 @@
       <div class="attention">
         <button class="attention-button">关注我</button>
       </div>
-      <div class="me-platform">
-        <img :src="imgList.github" alt="github" width="26px" />
-        <img :src="imgList.wechat" alt="wechat" width="26px" />
-        <img :src="imgList.qq" alt="qq" width="26px" />
-        <img :src="imgList.bilibili" alt="bili" width="26px" />
+      <div class="platform">
+        <i class="iconfont iconpengyouquan"></i>
+        <i class="iconfont iconweixin"></i>
+        <i class="iconfont icongithub"></i>
+        <i class="iconfont iconbilibili-line"></i>
       </div>
     </div>
 
-    <div class="category">分类</div>
+    <div class="category">
+      <span>分类</span>
+      <ul>
+        <li v-for="(item, index) in category" :key="index">
+          <span>{{ item }}</span>
+        </li>
+      </ul>
+    </div>
   </div>
 </template>
 
@@ -29,27 +36,25 @@ export default {
       //应该这样引入图片
       imgList: {
         me: require("../assets/me.jpg"),
-        bilibili: require("../svg/bilibili.svg"),
-        github: require("../svg/github.svg"),
-        wechat: require("../svg/wechat.svg"),
-        qq: require("../svg/qq.svg"),
       },
+      category: ["日志", "教程", "笔记", "其他"],
     };
   },
 };
 </script>
 
 <style>
-.about {
+/**关于博客区域css */
+.left > .about {
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  height: 350px;
+  height: 330px;
   background: white;
   box-shadow: 0 0 1px #9c9d9e;
 }
 
-.me {
+.left > .about > .me {
   border-radius: 50%;
   height: 130px;
   width: 130px;
@@ -57,12 +62,17 @@ export default {
   overflow: hidden;
 }
 
-.showMySelf {
-  height: 54px;
+.left > .about > .showMySelf {
+  height: 60px;
   text-align: center;
 }
 
-.attention-button {
+.left > .about > .attention {
+  flex-grow: 1;
+  text-align: center;
+}
+
+.left > .about > .attention > .attention-button {
   width: 200px;
   height: 40px;
   border-radius: 4px;
@@ -70,32 +80,39 @@ export default {
   letter-spacing: 3px;
   background: #409eff;
   color: white;
-}
-
-button {
   cursor: pointer;
   outline: none;
 }
 
-.attention {
-  flex-grow: 1;
-  text-align: center;
-}
-
-.me-platform {
+.left > .about > .platform {
   text-align: center;
   margin: 10px 0;
 }
 
-.me-platform img {
-  margin: 9px;
+.left > .about > .platform > i {
+  font-size: 25px;
+  margin: 0 7px;
   cursor: pointer;
 }
 
-.category {
+/**分类区域css */
+.left > .category {
   margin-top: 20px;
-  min-height: 250px;
+  min-height: 180px;
   background: white;
   box-shadow: 0 0 1px #9c9d9e;
+  padding: 10px;
+}
+
+.left > .category ul {
+  list-style: none;
+}
+
+.left > .category > ul > li {
+  padding: 5px;
+}
+
+li span {
+  cursor: pointer;
 }
 </style>

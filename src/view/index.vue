@@ -24,15 +24,18 @@ export default {
   display: flex;
   margin-top: 10px;
   align-items: flex-start;
+  width: 100%;
 }
 
-.right-div,
+.app-body > .right-div,
 .left-div {
-  width: 280px;
+  width: 270px;
   margin: 10px;
+  /**防止子元素因为设置了宽度依然会被收缩 */
+  flex-shrink: 0;
 }
 
-.middle-div {
+.app-body > .middle-div {
   flex-grow: 1;
   margin: 10px;
 }

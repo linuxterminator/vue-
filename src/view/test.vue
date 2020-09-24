@@ -2,8 +2,8 @@
   <div id="main">
     <mavon-editor v-model="article.content" />
     <input placeholder="文章标题" v-model="article.title" />
-    <input type="text" name="" id="" placeholder="文章摘要" />
-    <input type="file" name="" id="" />
+    <input placeholder="文章摘要" type="text" v-model="article.introduction" />
+    <input type="file" />
     <button @click="submitMarkDown">提交</button>
   </div>
 </template>
@@ -16,6 +16,7 @@ export default {
       article: {
         title: "",
         content: "",
+        introduction: "",
         author: "markdown作者",
         tagList: [],
       },

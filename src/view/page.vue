@@ -1,7 +1,7 @@
 <template>
   <div class="page">
     <article>
-      <p v-html="article"></p>
+      <p v-html="article" class="markdown-body"></p>
     </article>
   </div>
 </template>
@@ -15,7 +15,7 @@ export default {
       article: [],
     };
   },
-  created() {
+  mounted() {
     api
       .get("article/" + this.$route.params.id)
       .then((res) => {
@@ -30,11 +30,14 @@ export default {
 
 <style>
 .page {
+  flex-grow: 1;
   background: white;
   box-shadow: 0 0 1px #9c9d9e;
+  padding: 10px;
+  overflow: hidden;
 }
 
-article {
+.page article {
   overflow: hidden;
 }
 </style>

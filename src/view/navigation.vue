@@ -1,5 +1,5 @@
 <template>
-  <div class="nav_head">
+  <div class="navigation">
     <nav>
       <router-link
         :to="item.path"
@@ -28,13 +28,13 @@ export default {
 </script>
 
 <style>
-.nav_span {
-  font-size: 20px;
+.navigation {
+  line-height: 60px;
   padding: 0 20px;
 }
 
-.nav_head {
-  line-height: 60px;
+.nav_span {
+  font-size: 20px;
   padding: 0 20px;
 }
 

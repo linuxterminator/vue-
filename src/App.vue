@@ -22,7 +22,7 @@ export default {
 
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: webfont, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #565a5f;
@@ -30,13 +30,13 @@ export default {
   height: 100%;
 }
 
-.app-head {
+#app > .app-head {
   height: 60px;
   background: white;
   box-shadow: 0 0 1px #9c9d9e;
 }
 
-.appBody {
+#app > .appBody {
   background: #f5f8f9;
 }
 </style>

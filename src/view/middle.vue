@@ -1,15 +1,23 @@
 <template>
-  <div>
+  <div class="middle">
     <div v-for="(item, index) in list" :key="index" class="article-item">
+      <!--封面-->
       <div class="articleCover"></div>
       <article>
+        <!--标题-->
         <header>
-          <h1>{{ item.title }}</h1>
+          <h3>{{ item.title }}</h3>
         </header>
-        <p v-html="item.content" @click="toPage(item.id)"></p>
+        <!--主体-->
+        <p v-html="item.introduction" @click="toPage(item.id)"></p>
+        <!--页脚-->
         <footer>
-          {{ item.createdate }}
+          <span>
+            <i class="iconfont iconriqi" style="font-size:1px"></i>
+            {{ item.createdate }}
+          </span>
           <span v-for="(item, index) in item.tagList" :key="index">
+            <i class="iconfont iconicon-test" style="font-size:1px"></i>
             {{ item.tagName }}
           </span>
         </footer>
@@ -20,8 +28,6 @@
 
 <script>
 import { api } from "@/http.js";
-import { markdownit } from "@/markdownit";
-import "highlight.js/styles/gruvbox-dark.css";
 export default {
   data() {
     return {
@@ -38,12 +44,8 @@ export default {
       .get("article")
       .then((res) => {
         console.log(res.data.data);
-        //解析markdown
-        let contentList = res.data.data;
-        for (let item of contentList) {
-          item.content = markdownit.render(item.content);
-        }
-        this.list = contentList;
+
+        this.list = res.data.data;
       })
       .catch((err) => {
         console.log(err);
@@ -52,9 +54,15 @@ export default {
 };
 </script>
 
-<style>
-header h1 {
+<style scoped>
+header h3 {
   margin: 10px 0;
+}
+
+.middle span {
+  font-size: 9px;
+  margin-right: 10px;
+  cursor: pointer;
 }
 
 .article-item {
@@ -88,12 +96,11 @@ article {
 .article-item header {
   height: 20%;
   text-align: left;
-  padding: 0 13px;
   overflow: hidden;
 }
 
 article p {
-  height: 50%;
+  height: 100%;
   text-align: left;
   flex-grow: 1;
   margin: 0;
@@ -101,7 +108,6 @@ article p {
 }
 
 article footer {
-  padding: 0 13px;
   height: 35px;
   line-height: 35px;
 }
