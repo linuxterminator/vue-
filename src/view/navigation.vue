@@ -5,9 +5,10 @@
         :to="item.path"
         v-for="(item, index) in navList"
         :key="index"
-        class="nav_span"
-        ><span>{{ item.name }}</span></router-link
       >
+        <i :class="item.icon"></i>
+        <span>{{ item.name }}</span>
+      </router-link>
     </nav>
   </div>
 </template>
@@ -17,10 +18,10 @@ export default {
   data() {
     return {
       navList: [
-        { name: "主页", path: "/" },
-        { name: "分类", path: "/" },
-        { name: "归档", path: "/" },
-        { name: "markdown测试", path: "/test" },
+        { name: "主页", path: "/", icon: "iconfont iconicon_huabanfuben" },
+        { name: "分类", path: "/", icon: "iconfont iconfenlei" },
+        { name: "归档", path: "/", icon: "iconfont iconguidang" },
+        { name: "markdown测试", path: "/test", icon: "iconfont iconmarkdown" },
       ],
     };
   },
@@ -33,13 +34,15 @@ export default {
   padding: 0 20px;
 }
 
-.nav_span {
-  font-size: 20px;
-  padding: 0 20px;
+.navigation span {
+  font-size: 17px;
+  padding: 0 10px;
 }
 
-a {
+.navigation a {
   text-decoration: none;
   color: #565a5f;
+  padding: 0 12px;
+  color: #6c549c;
 }
 </style>

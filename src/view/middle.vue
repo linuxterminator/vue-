@@ -13,11 +13,11 @@
         <!--页脚-->
         <footer>
           <span>
-            <i class="iconfont iconriqi" style="font-size:1px"></i>
+            <i class="iconfont iconriqi" style="font-size: 1px"></i>
             {{ item.createdate }}
           </span>
           <span v-for="(item, index) in item.tagList" :key="index">
-            <i class="iconfont iconicon-test" style="font-size:1px"></i>
+            <i class="iconfont iconicon-test" style="font-size: 1px"></i>
             {{ item.tagName }}
           </span>
         </footer>
@@ -54,7 +54,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
 header h3 {
   margin: 10px 0;
 }
@@ -75,7 +75,7 @@ header h3 {
 }
 
 .articleCover {
-  width: 280px;
+  width: 300px;
   height: 230px;
   margin: auto 10px;
   /**使用背景图片的方式，直接插入图片有问题，图片容易失真 */
@@ -94,9 +94,11 @@ article {
 }
 
 .article-item header {
-  height: 20%;
+  height: 80px;
   text-align: left;
   overflow: hidden;
+  margin-bottom: 10px;
+  padding: 0 15px;
 }
 
 article p {
@@ -105,10 +107,13 @@ article p {
   flex-grow: 1;
   margin: 0;
   cursor: pointer;
+  padding: 0 15px;
 }
 
 article footer {
   height: 35px;
   line-height: 35px;
+  margin-bottom: 10px;
+  padding: 0 15px;
 }
 </style>

@@ -6,6 +6,34 @@
   "description": "博客icon",
   "glyphs": [
     {
+      "icon_id": "2552066",
+      "name": "分类",
+      "font_class": "fenlei",
+      "unicode": "e61d",
+      "unicode_decimal": 58909
+    },
+    {
+      "icon_id": "11993026",
+      "name": "markdown",
+      "font_class": "markdown",
+      "unicode": "e6ff",
+      "unicode_decimal": 59135
+    },
+    {
+      "icon_id": "12683880",
+      "name": "首页",
+      "font_class": "icon_huabanfuben",
+      "unicode": "e621",
+      "unicode_decimal": 58913
+    },
+    {
+      "icon_id": "14434945",
+      "name": "归档",
+      "font_class": "guidang",
+      "unicode": "e63e",
+      "unicode_decimal": 58942
+    },
+    {
       "icon_id": "10468863",
       "name": "标签",
       "font_class": "icon-test",

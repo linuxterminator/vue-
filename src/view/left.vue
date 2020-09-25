@@ -8,7 +8,7 @@
         <span>Hello World !<br /></span>
       </div>
       <div class="attention">
-        <button class="attention-button">关注我</button>
+        <button class="main-button attention-button">关注我</button>
       </div>
       <div class="platform">
         <i class="iconfont iconpengyouquan"></i>
@@ -37,7 +37,7 @@ export default {
       imgList: {
         me: require("../assets/me.jpg"),
       },
-      category: ["日志", "教程", "笔记", "其他"],
+      category: ["日志", "教程", "笔记", "友链", "其他"],
     };
   },
 };
@@ -75,13 +75,6 @@ export default {
 .left > .about > .attention > .attention-button {
   width: 200px;
   height: 40px;
-  border-radius: 4px;
-  border: 1px solid white;
-  letter-spacing: 3px;
-  background: #409eff;
-  color: white;
-  cursor: pointer;
-  outline: none;
 }
 
 .left > .about > .platform {

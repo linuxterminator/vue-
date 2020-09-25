@@ -1,7 +1,8 @@
 <template>
   <div class="page">
     <article>
-      <p v-html="article" class="markdown-body"></p>
+      <!--添加mavon-editor的样式话要加上类markdown-body-->
+      <p v-html="article"></p>
     </article>
   </div>
 </template>
