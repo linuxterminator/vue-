@@ -4,10 +4,8 @@ import VueRouter from "vue-router";
 
 //引入自己的全局css
 import "./style.css";
-
 //阿里图标
 import "./iconfont/iconfont.css";
-//阿里字体
 
 import { routes } from "./router";
 Vue.use(VueRouter);
@@ -32,7 +30,7 @@ import "mavon-editor/dist/css/index.css";
 //不过这个样式有点问题，有时候需要刷新才能出现
 import "highlight.js/styles/atom-one-dark.css";
 //第三方markdown样式
-import "./markdown-style/typora-purple-theme-1.0/purple.css";
+import "./markdownstyle/purple.css";
 Vue.use(mavonEditor);
 
 Vue.config.productionTip = false;

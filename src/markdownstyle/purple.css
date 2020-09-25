@@ -95,7 +95,7 @@ h6 {
     line-height: 1.4;
     cursor: text;
     color: var(--title-color);
-    font-family: var(--font-sans-serif);
+    /* font-family: var(--font-sans-serif); */
 }
 
 h1:hover a.anchor,

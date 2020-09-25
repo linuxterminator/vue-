@@ -14,7 +14,7 @@
         <footer>
           <span>
             <i class="iconfont iconriqi" style="font-size: 1px"></i>
-            {{ item.createdate }}
+            <span>{{ item.createdate }}</span>
           </span>
           <span v-for="(item, index) in item.tagList" :key="index">
             <i class="iconfont iconicon-test" style="font-size: 1px"></i>
@@ -98,6 +98,7 @@ article {
   text-align: left;
   overflow: hidden;
   margin-bottom: 10px;
+  margin-top: 10px;
   padding: 0 15px;
 }
 
@@ -108,6 +109,7 @@ article p {
   margin: 0;
   cursor: pointer;
   padding: 0 15px;
+  font-size: 17px;
 }
 
 article footer {

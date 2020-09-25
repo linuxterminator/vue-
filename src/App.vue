@@ -22,7 +22,7 @@ export default {
 
 <style>
 #app {
-  font-family: webfont, Helvetica, Arial, sans-serif;
+  font-family: "hanyi";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #565a5f;
