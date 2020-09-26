@@ -5,12 +5,11 @@ import VueRouter from "vue-router";
 //引入自己的全局css
 import "./style.css";
 //阿里图标
-import "./iconfont/iconfont.css";
+import "./icon/iconfont.css";
 
 import { routes } from "./router";
 Vue.use(VueRouter);
 let routerInstance = new VueRouter({
-  mode: "history",
   routes: routes,
   scrollBehavior() {
     return {

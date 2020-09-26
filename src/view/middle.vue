@@ -2,7 +2,9 @@
   <div class="middle">
     <div v-for="(item, index) in list" :key="index" class="article-item">
       <!--封面-->
-      <div class="articleCover"></div>
+      <div class="articleCover">
+        <img :src="item.img" alt="文章封面" />
+      </div>
       <article>
         <!--标题-->
         <header>
@@ -35,21 +37,25 @@ export default {
     };
   },
   methods: {
+    //跳转到page
     toPage(id) {
-      this.$router.push("page/" + id);
+      this.$router.push("/page/" + id);
+    },
+    //获取文章
+    getArticle() {
+      api
+        .get("article")
+        .then((res) => {
+          console.log(res.data.data);
+          this.list = res.data.data.reverse();
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     },
   },
   created() {
-    api
-      .get("article")
-      .then((res) => {
-        console.log(res.data.data);
-
-        this.list = res.data.data;
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    this.getArticle();
   },
 };
 </script>
@@ -75,12 +81,16 @@ header h3 {
 }
 
 .articleCover {
-  width: 300px;
-  height: 230px;
-  margin: auto 10px;
-  /**使用背景图片的方式，直接插入图片有问题，图片容易失真 */
-  background: url("../assets/imgTest.png");
+  width: 320px;
+  height: 100%;
+  flex-shrink: 0;
   background-size: cover;
+}
+
+.articleCover > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 article {

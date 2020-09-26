@@ -3,7 +3,7 @@
     <mavon-editor v-model="article.content" />
     <input placeholder="文章标题" v-model="article.title" />
     <input placeholder="文章摘要" type="text" v-model="article.introduction" />
-    <input type="file" />
+    文章图片有默认链接
     <button @click="submitMarkDown" class="main-button submit">提交</button>
   </div>
 </template>

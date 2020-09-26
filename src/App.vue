@@ -25,7 +25,7 @@ export default {
   font-family: "hanyi";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: #565a5f;
+  color: black;
   background: #f5f8f9;
   height: 100%;
 }

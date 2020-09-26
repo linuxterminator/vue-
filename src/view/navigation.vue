@@ -20,7 +20,7 @@ export default {
       navList: [
         { name: "主页", path: "/", icon: "iconfont iconicon_huabanfuben" },
         { name: "分类", path: "/", icon: "iconfont iconfenlei" },
-        { name: "归档", path: "/", icon: "iconfont iconguidang" },
+        { name: "关于", path: "/", icon: "iconfont iconguidang" },
         { name: "markdown测试", path: "/test", icon: "iconfont iconmarkdown" },
       ],
     };

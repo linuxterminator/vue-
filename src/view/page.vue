@@ -16,15 +16,20 @@ export default {
       article: [],
     };
   },
-  mounted() {
-    api
-      .get("article/" + this.$route.params.id)
-      .then((res) => {
-        this.article = markdownit.render(res.data.data.content);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+  methods: {
+    getArticle() {
+      api
+        .get("article/" + this.$route.params.id)
+        .then((res) => {
+          this.article = markdownit.render(res.data.data.content);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
+  },
+  created() {
+    this.getArticle();
   },
 };
 </script>
@@ -40,5 +45,9 @@ export default {
 
 .page article {
   overflow: hidden;
+}
+
+p img {
+  max-width: 400px;
 }
 </style>

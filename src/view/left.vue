@@ -1,6 +1,6 @@
 <template>
   <div class="left">
-    <div class="about">
+    <div class="left-all about">
       <div class="me">
         <img :src="imgList.me" alt="me" width="100%" height="100%" />
       </div>
@@ -18,11 +18,12 @@
       </div>
     </div>
 
-    <div class="category">
+    <div class="left-all category">
       <span>分类</span>
       <ul>
         <li v-for="(item, index) in category" :key="index">
-          <span>{{ item }}</span>
+          <i :class="item.icon"></i>
+          <span>{{ item.name }}</span>
         </li>
       </ul>
     </div>
@@ -35,23 +36,31 @@ export default {
     return {
       //应该这样引入图片
       imgList: {
-        me: require("../assets/me.jpg"),
+        me: "https://qingshanblog.oss-cn-hangzhou.aliyuncs.com/45588935.jpeg",
       },
-      category: ["日志", "教程", "笔记", "友链", "其他"],
+      category: [
+        { name: "日志", icon: "iconfont iconicon-test1" },
+        { name: "教程", icon: "iconfont iconcaishichang-" },
+        { name: "笔记", icon: "iconfont iconbiji" },
+        { name: "友链", icon: "iconfont iconyouqinglianjie" },
+        { name: "其他", icon: "iconfont iconqita" },
+      ],
     };
   },
 };
 </script>
 
 <style>
-/**关于博客区域css */
+.left-all {
+  background: white;
+  box-shadow: 0 0 1px #9c9d9e;
+}
+
 .left > .about {
   overflow: hidden;
   display: flex;
   flex-direction: column;
   height: 330px;
-  background: white;
-  box-shadow: 0 0 1px #9c9d9e;
 }
 
 .left > .about > .me {
@@ -92,13 +101,12 @@ export default {
 .left > .category {
   margin-top: 20px;
   min-height: 180px;
-  background: white;
-  box-shadow: 0 0 1px #9c9d9e;
   padding: 10px;
 }
 
 .left > .category ul {
-  list-style: none;
+  padding: 15px;
+  margin: 0;
 }
 
 .left > .category > ul > li {
@@ -106,6 +114,6 @@ export default {
 }
 
 li span {
-  cursor: pointer;
+  margin-left: 10px;
 }
 </style>

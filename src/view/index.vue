@@ -1,7 +1,9 @@
 <template>
   <div class="app-body">
     <div class="left-div"><left /></div>
-    <div class="middle-div"><router-view></router-view></div>
+    <div class="middle-div">
+      <router-view :key="$route.fullPath"></router-view>
+    </div>
     <div class="right-div"><right /></div>
   </div>
 </template>
@@ -9,8 +11,31 @@
 <script>
 import left from "@/view/left";
 import right from "@/view/right";
+import { api } from "@/http.js";
 
 export default {
+  data() {
+    return {
+      Blog: {
+        blog_title: "",
+        blog_logo: "",
+        blog_favion: "",
+        blog_announcement: "",
+      },
+    };
+  },
+  methods: {
+    getBlogInfo() {
+      api
+        .get("bloginfo")
+        .then((res) => {
+          console.log(res);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
+  },
   components: {
     left,
     right,
