@@ -1,9 +1,10 @@
 //路由文件
 import index from "@/view/index";
-import test from "@/view/test";
+// import test from "@/view/test";
 
 import page from "@/view/page";
 import middle from "@/view/middle";
+import about from "@/view/about"
 
 let routes = [
   {
@@ -16,15 +17,23 @@ let routes = [
         component: middle,
       },
       {
-        path: "page/:id",
+        path: "tagArticle/:tagId",
+        component: middle
+      },
+      {
+        path: "page/:articleId",
         component: page,
       },
+      {
+        path: "about",
+        component: about
+      }
     ],
   },
-  {
-    path: "/test",
-    component: test,
-  },
+  // {
+  //   path: "/test",
+  //   component: test,
+  // },
 ];
 
 export { routes };

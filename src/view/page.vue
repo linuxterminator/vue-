@@ -1,5 +1,5 @@
 <template>
-  <div class="page">
+  <div class="page container">
     <article>
       <!--添加mavon-editor的样式话要加上类markdown-body-->
       <p v-html="article"></p>
@@ -19,9 +19,9 @@ export default {
   methods: {
     getArticle() {
       api
-        .get("article/" + this.$route.params.id)
+        .get("article/" + this.$route.params.articleId)
         .then((res) => {
-          this.article = markdownit.render(res.data.data.content);
+          this.article = markdownit.render(res.data.content);
         })
         .catch((err) => {
           console.log(err);
@@ -37,8 +37,6 @@ export default {
 <style>
 .page {
   flex-grow: 1;
-  background: white;
-  box-shadow: 0 0 1px #9c9d9e;
   padding: 10px;
   overflow: hidden;
 }

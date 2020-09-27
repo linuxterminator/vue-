@@ -1,5 +1,5 @@
 <template>
-  <div class="navigation">
+  <div class="navigation container">
     <nav>
       <router-link
         :to="item.path"
@@ -7,7 +7,7 @@
         :key="index"
       >
         <i :class="item.icon"></i>
-        <span>{{ item.name }}</span>
+        <span class="text-blue">{{ item.name }}</span>
       </router-link>
     </nav>
   </div>
@@ -20,8 +20,8 @@ export default {
       navList: [
         { name: "主页", path: "/", icon: "iconfont iconicon_huabanfuben" },
         { name: "分类", path: "/", icon: "iconfont iconfenlei" },
-        { name: "关于", path: "/", icon: "iconfont iconguidang" },
-        { name: "markdown测试", path: "/test", icon: "iconfont iconmarkdown" },
+        { name: "关于", path: "/about", icon: "iconfont iconguidang" },
+        // { name: "markdown测试", path: "/test", icon: "iconfont iconmarkdown" },
       ],
     };
   },

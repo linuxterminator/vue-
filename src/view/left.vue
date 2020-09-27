@@ -1,14 +1,14 @@
 <template>
   <div class="left">
-    <div class="left-all about">
+    <div class="left-all about container">
       <div class="me">
-        <img :src="imgList.me" alt="me" width="100%" height="100%" />
+        <img :src="logo" alt="me" width="100%" height="100%" />
       </div>
       <div class="showMySelf">
         <span>Hello World !<br /></span>
       </div>
       <div class="attention">
-        <button class="main-button attention-button">关注我</button>
+        <button class="main-button attention-button">别点我</button>
       </div>
       <div class="platform">
         <i class="iconfont iconpengyouquan"></i>
@@ -18,12 +18,12 @@
       </div>
     </div>
 
-    <div class="left-all category">
+    <div class="left-all category container">
       <span>分类</span>
       <ul>
         <li v-for="(item, index) in category" :key="index">
           <i :class="item.icon"></i>
-          <span>{{ item.name }}</span>
+          <span class="text-blue">{{ item.name }}</span>
         </li>
       </ul>
     </div>
@@ -32,12 +32,11 @@
 
 <script>
 export default {
+  props: {
+    logo: String,
+  },
   data() {
     return {
-      //应该这样引入图片
-      imgList: {
-        me: "https://qingshanblog.oss-cn-hangzhou.aliyuncs.com/45588935.jpeg",
-      },
       category: [
         { name: "日志", icon: "iconfont iconicon-test1" },
         { name: "教程", icon: "iconfont iconcaishichang-" },
@@ -52,8 +51,7 @@ export default {
 
 <style>
 .left-all {
-  background: white;
-  box-shadow: 0 0 1px #9c9d9e;
+  overflow: hidden;
 }
 
 .left > .about {
@@ -115,5 +113,6 @@ export default {
 
 li span {
   margin-left: 10px;
+  cursor: pointer;
 }
 </style>

@@ -1,6 +1,10 @@
 <template>
   <div class="middle">
-    <div v-for="(item, index) in list" :key="index" class="article-item">
+    <div
+      v-for="(item, index) in list"
+      :key="index"
+      class="article-item container"
+    >
       <!--封面-->
       <div class="articleCover">
         <img :src="item.img" alt="文章封面" />
@@ -11,7 +15,9 @@
           <h3>{{ item.title }}</h3>
         </header>
         <!--主体-->
-        <p v-html="item.introduction" @click="toPage(item.id)"></p>
+        <p @click="toPage(item.id)" class="text-blue">
+          {{ item.introduction }}
+        </p>
         <!--页脚-->
         <footer>
           <span>
@@ -41,21 +47,36 @@ export default {
     toPage(id) {
       this.$router.push("/page/" + id);
     },
+    //获取标签下的所有文章
+    getArticleFromTag() {
+      api
+        .get("/tag/" + this.$route.params.tagId)
+        .then((res) => {
+          this.list = res.data;
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
     //获取文章
     getArticle() {
       api
         .get("article")
         .then((res) => {
-          console.log(res.data.data);
-          this.list = res.data.data.reverse();
+          this.list = res.data.reverse();
         })
         .catch((err) => {
           console.log(err);
         });
     },
   },
+  /**根据路由来判断该获取什么数据，是标签下的文章还是全部文章 */
   created() {
-    this.getArticle();
+    if (this.$route.path == "/") {
+      this.getArticle();
+    } else {
+      this.getArticleFromTag();
+    }
   },
 };
 </script>
@@ -74,8 +95,6 @@ header h3 {
 .article-item {
   width: 100%;
   height: 250px;
-  box-shadow: 0 0 1px #9c9d9e;
-  background: white;
   margin-bottom: 17px;
   display: flex;
 }
@@ -88,7 +107,7 @@ header h3 {
 }
 
 .articleCover > img {
-  width: 100%;
+  max-width: 100%;
   height: 100%;
   object-fit: cover;
 }

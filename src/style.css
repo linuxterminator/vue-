@@ -17,6 +17,20 @@ ul{
   list-style: none;
 }
 
+/*容器外观和背景颜色和圆角*/
+.container{
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05), 0 0 1px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  overflow: hidden;
+  background-color: rgba(255, 255, 255, 0.85);
+}
+
+/*字体悬浮颜色*/
+.text-blue:hover{
+  color:#3273dc
+  
+}
+
 /*按钮*/
 .main-button {
   border-radius: 4px;

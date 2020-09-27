@@ -32,11 +32,10 @@ export default {
 
 #app > .app-head {
   height: 60px;
-  background: white;
-  box-shadow: 0 0 1px #9c9d9e;
 }
 
 #app > .appBody {
   background: #f5f8f9;
+  margin-top: 20px;
 }
 </style>

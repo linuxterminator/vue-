@@ -1,10 +1,10 @@
 <template>
   <div class="right">
-    <div class="right-all announcement">
+    <div class="right-all announcement container">
       <span>公告</span>
-      <p>博客施工中</p>
+      <p>{{ announcement }}</p>
     </div>
-    <div class="right-all newArticle">
+    <div class="right-all newArticle container">
       <span>最新文章</span>
       <ul>
         <li
@@ -12,15 +12,34 @@
           :key="index"
           @click="toPage(item.id)"
         >
-          <p>{{ item.introduction | articleLength }}</p>
+          <p
+            class="text-blue"
+            :class="{ textActive: $route.params.articleId == item.id }"
+          >
+            {{ item.introduction | articleLength }}
+          </p>
         </li>
       </ul>
     </div>
-    <div class="right-all articleTag">
+    <div class="right-all articleTag container">
       <div>标签</div>
-      <div v-for="(item, index) in articleTag" :key="index" class="tag-item">
-        {{ item.tagName }}
-      </div>
+      <ul>
+        <li
+          v-for="(item, index) in articleTag"
+          :key="index"
+          class="tag-item text-blue"
+        >
+          <!--标签激活样式,根据路由参数是否和标签id相同-->
+          <span
+            @click="from_tag_to_pagelist(item.tagId)"
+            :class="{
+              textActive: $route.params.tagId == item.tagId,
+            }"
+          >
+            {{ item.tagName }}
+          </span>
+        </li>
+      </ul>
     </div>
   </div>
 </template>
@@ -28,6 +47,9 @@
 <script>
 import { api } from "@/http";
 export default {
+  props: {
+    announcement: String,
+  },
   data() {
     return {
       newArticle: [],
@@ -39,12 +61,16 @@ export default {
     toPage(id) {
       this.$router.push("/page/" + id);
     },
+    //从标签寻找标签下的文章
+    from_tag_to_pagelist(id) {
+      this.$router.push("/tagArticle/" + id);
+    },
     //获取最新文章
     getNewArticle() {
       api
         .get("article")
         .then((res) => {
-          this.newArticle = res.data.data.reverse().slice(0, 8);
+          this.newArticle = res.data.reverse().slice(0, 6);
         })
         .catch((err) => {
           console.log(err);
@@ -55,7 +81,7 @@ export default {
       api
         .get("tag")
         .then((res) => {
-          this.articleTag = res.data.data;
+          this.articleTag = res.data;
         })
         .catch((err) => {
           console.log(err);
@@ -80,9 +106,8 @@ export default {
 
 <style>
 .right-all {
-  background: white;
-  box-shadow: 0 0 1px #9c9d9e;
   padding: 10px;
+  overflow: hidden;
 }
 
 .right > .announcement {
@@ -94,16 +119,24 @@ export default {
 }
 
 .right > .articleTag {
-  height: 240px;
-  min-height: 300px;
+  min-height: 210px;
 }
 
 .right > .newArticle li {
   cursor: pointer;
-  margin: 10px 0;
+  margin: 25px 0;
 }
 
 .right > .articleTag span {
   padding: 3px;
+}
+
+.textActive {
+  color: #3273dc;
+}
+
+.tag-item {
+  padding: 2px;
+  cursor: pointer;
 }
 </style>
