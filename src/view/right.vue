@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import { api } from "@/http";
+import { api } from "@/api/http";
 import list from "@/components/list";
 export default {
   components: {

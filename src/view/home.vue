@@ -6,7 +6,7 @@
 
 <script>
 import ArticleList from "@/components/ArticleList";
-import { api } from "../http";
+import { api } from "@/api/http";
 export default {
   data() {
     return {

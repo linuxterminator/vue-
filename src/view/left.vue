@@ -1,11 +1,8 @@
 <template>
   <div class="left">
     <div class="left-all about container">
-      <div class="me">
-        <img :src="logo" alt="me" width="100%" height="100%" />
-      </div>
-      <div class="showMySelf">
-        <span>Hello World !<br /></span>
+      <div>
+        <Logo :logourl="logo" />
       </div>
       <div class="attention">
         <button class="main-button attention-button">别点我</button>
@@ -24,12 +21,14 @@
 
 <script>
 import list from "@/components/list";
+import Logo from "@/components/Logo";
 export default {
   props: {
     logo: String,
   },
   components: {
     list,
+    Logo,
   },
   data() {
     return {
@@ -61,19 +60,6 @@ export default {
   display: flex;
   flex-direction: column;
   height: 330px;
-}
-
-.left > .about > .me {
-  border-radius: 50%;
-  height: 130px;
-  width: 130px;
-  margin: 20px auto;
-  overflow: hidden;
-}
-
-.left > .about > .showMySelf {
-  height: 60px;
-  text-align: center;
 }
 
 .left > .about > .attention {

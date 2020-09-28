@@ -16,7 +16,7 @@
 <script>
 import left from "@/view/left";
 import right from "@/view/right";
-import { api } from "@/http.js";
+import { api } from "@/api/http.js";
 import { markdownit } from "@/markdownit";
 
 export default {

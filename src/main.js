@@ -3,11 +3,11 @@ import App from "./App.vue";
 import VueRouter from "vue-router";
 
 //引入自己的全局css
-import "./style.css";
+import "./css/style.css";
 //阿里图标
 import "./icon/iconfont.css";
 
-import { routes } from "./router";
+import { routes } from "./route/router";
 Vue.use(VueRouter);
 let routerInstance = new VueRouter({
   routes: routes,

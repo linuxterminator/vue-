@@ -1,5 +1,5 @@
 <template>
-  <div class="showArticle container">
+  <div class="showArticle">
     <article>
       <div v-html="Article"></div>
     </article>
@@ -15,5 +15,6 @@ export default {
 <style>
 .showArticle {
   padding: 15px;
+  height: 100%;
 }
 </style>

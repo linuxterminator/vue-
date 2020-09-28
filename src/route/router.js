@@ -35,7 +35,7 @@ let routes = [
   {
     path: "/friend",
     component: friend
-  }
+  },
 ];
 
 export { routes };

@@ -1,6 +1,6 @@
 @font-face{
   font-family:"hanyi";
-  src: url(./font/HYLiangPinXianJ.ttf)
+  src: url(../font/HYLiangPinXianJ.ttf)
 }
 
 /*不知道为什么明明在app.vue里面写了还是不行*/
@@ -12,6 +12,7 @@ h1,h2,h3,h4,h5,h6{
 code,span,button{
   font-family: "hanyi";
 }
+
 
 ul{
   list-style: none;
