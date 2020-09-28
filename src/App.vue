@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <div class="app-head">
+    <div class="app-head container">
       <navigation />
     </div>
     <div class="appBody">
@@ -26,8 +26,9 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: black;
-  background: #f5f8f9;
   height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 #app > .app-head {
@@ -35,7 +36,7 @@ export default {
 }
 
 #app > .appBody {
-  background: #f5f8f9;
-  margin-top: 20px;
+  background: #e9f2f8;
+  flex-grow: 1;
 }
 </style>

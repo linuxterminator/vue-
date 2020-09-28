@@ -1,19 +1,45 @@
 <template>
-  <div class="container aboutme" v-html="showSelf"></div>
+  <div class="aboutme">
+    <ShowArticle :Article="blogMessage" />
+  </div>
 </template>
 
 <script>
+//关于我
+import ShowArticle from "@/components/ShowArticle";
+import { markdownit } from "@/markdownit";
+import { api } from "@/http";
 export default {
   data() {
-    return {};
+    return {
+      blogMessage: "",
+    };
+  },
+  components: {
+    ShowArticle,
+  },
+  methods: {
+    getBlogInfo() {
+      api
+        .get("/bloginfo")
+        .then((res) => {
+          this.blogMessage = markdownit.render(res.data.blogMessage);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
   },
   props: ["showSelf"],
+  created() {
+    this.getBlogInfo();
+  },
 };
 </script>
 
 <style>
 .aboutme {
-  min-height: 600px;
-  padding: 20px;
+  height: 600px;
+  margin: 20px;
 }
 </style>

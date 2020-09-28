@@ -17,11 +17,18 @@ ul{
   list-style: none;
 }
 
+li{
+  padding:5px;
+}
+
+li > span{
+  cursor: pointer;
+}
+
 /*容器外观和背景颜色和圆角*/
 .container{
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05), 0 0 1px rgba(0, 0, 0, 0.1);
   border-radius: 4px;
-  overflow: hidden;
   background-color: rgba(255, 255, 255, 0.85);
 }
 

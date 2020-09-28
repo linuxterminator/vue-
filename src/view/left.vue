@@ -11,37 +11,39 @@
         <button class="main-button attention-button">别点我</button>
       </div>
       <div class="platform">
-        <i class="iconfont iconpengyouquan"></i>
-        <i class="iconfont iconweixin"></i>
-        <i class="iconfont icongithub"></i>
-        <i class="iconfont iconbilibili-line"></i>
+        <i :class="item" v-for="(item, index) in platform" :key="index"></i>
       </div>
     </div>
 
     <div class="left-all category container">
       <span>分类</span>
-      <ul>
-        <li v-for="(item, index) in category" :key="index">
-          <i :class="item.icon"></i>
-          <span class="text-blue">{{ item.name }}</span>
-        </li>
-      </ul>
+      <list :list="category" itemName="name" />
     </div>
   </div>
 </template>
 
 <script>
+import list from "@/components/list";
 export default {
   props: {
     logo: String,
   },
+  components: {
+    list,
+  },
   data() {
     return {
+      platform: [
+        "iconfont iconpengyouquan",
+        "iconfont iconweixin",
+        "iconfont icongithub",
+        "iconfont iconbilibili-line",
+      ],
       category: [
         { name: "日志", icon: "iconfont iconicon-test1" },
         { name: "教程", icon: "iconfont iconcaishichang-" },
         { name: "笔记", icon: "iconfont iconbiji" },
-        { name: "友链", icon: "iconfont iconyouqinglianjie" },
+        { name: "分类", icon: "iconfont iconfenlei" },
         { name: "其他", icon: "iconfont iconqita" },
       ],
     };
@@ -100,19 +102,5 @@ export default {
   margin-top: 20px;
   min-height: 180px;
   padding: 10px;
-}
-
-.left > .category ul {
-  padding: 15px;
-  margin: 0;
-}
-
-.left > .category > ul > li {
-  padding: 5px;
-}
-
-li span {
-  margin-left: 10px;
-  cursor: pointer;
 }
 </style>

@@ -1,7 +1,7 @@
 <template>
-  <div class="middle">
+  <div class="articleList">
     <div
-      v-for="(item, index) in list"
+      v-for="(item, index) in articleList"
       :key="index"
       class="article-item container"
     >
@@ -15,7 +15,7 @@
           <h3>{{ item.title }}</h3>
         </header>
         <!--主体-->
-        <p @click="toPage(item.id)" class="text-blue">
+        <p @click="toPage(item.title)" class="text-blue">
           {{ item.introduction }}
         </p>
         <!--页脚-->
@@ -35,7 +35,6 @@
 </template>
 
 <script>
-import { api } from "@/http.js";
 export default {
   data() {
     return {
@@ -43,41 +42,11 @@ export default {
     };
   },
   methods: {
-    //跳转到page
-    toPage(id) {
-      this.$router.push("/page/" + id);
-    },
-    //获取标签下的所有文章
-    getArticleFromTag() {
-      api
-        .get("/tag/" + this.$route.params.tagId)
-        .then((res) => {
-          this.list = res.data;
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    },
-    //获取文章
-    getArticle() {
-      api
-        .get("article")
-        .then((res) => {
-          this.list = res.data.reverse();
-        })
-        .catch((err) => {
-          console.log(err);
-        });
+    toPage(title) {
+      this.$router.push("/page/" + title);
     },
   },
-  /**根据路由来判断该获取什么数据，是标签下的文章还是全部文章 */
-  created() {
-    if (this.$route.path == "/") {
-      this.getArticle();
-    } else {
-      this.getArticleFromTag();
-    }
-  },
+  props: ["articleList"],
 };
 </script>
 
@@ -86,7 +55,7 @@ header h3 {
   margin: 10px 0;
 }
 
-.middle span {
+.articleList span {
   font-size: 9px;
   margin-right: 10px;
   cursor: pointer;
@@ -97,10 +66,11 @@ header h3 {
   height: 250px;
   margin-bottom: 17px;
   display: flex;
+  overflow: hidden;
 }
 
 .articleCover {
-  width: 320px;
+  width: 41%;
   height: 100%;
   flex-shrink: 0;
   background-size: cover;

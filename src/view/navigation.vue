@@ -1,5 +1,5 @@
 <template>
-  <div class="navigation container">
+  <div class="navigation">
     <nav>
       <router-link
         :to="item.path"
@@ -9,6 +9,7 @@
         <i :class="item.icon"></i>
         <span class="text-blue">{{ item.name }}</span>
       </router-link>
+      <span class="blogName">Narcissus'Blog</span>
     </nav>
   </div>
 </template>
@@ -19,9 +20,8 @@ export default {
     return {
       navList: [
         { name: "主页", path: "/", icon: "iconfont iconicon_huabanfuben" },
-        { name: "分类", path: "/", icon: "iconfont iconfenlei" },
+        { name: "友链", path: "/friend", icon: "iconfont iconyouqinglianjie " },
         { name: "关于", path: "/about", icon: "iconfont iconguidang" },
-        // { name: "markdown测试", path: "/test", icon: "iconfont iconmarkdown" },
       ],
     };
   },
@@ -44,5 +44,12 @@ export default {
   color: #565a5f;
   padding: 0 12px;
   color: #6c549c;
+}
+
+.blogName {
+  position: absolute;
+  right: 70px;
+  font-size: 23px !important;
+  color: rgba(92, 143, 25, 0.795);
 }
 </style>

@@ -5,10 +5,7 @@
     </div>
     <div class="middle-div">
       <!--如果子组件在router-view中，可以直接通过router-view向子组件传props数据-->
-      <router-view
-        :key="$route.fullPath"
-        :showSelf="Blog.message"
-      ></router-view>
+      <router-view :key="$route.fullPath"></router-view>
     </div>
     <div class="right-div">
       <right :announcement="Blog.announcement" />
@@ -71,7 +68,7 @@ export default {
 
 .app-body > .right-div,
 .left-div {
-  width: 270px;
+  width: 20%;
   margin: 10px 20px;
   /**防止子元素因为设置了宽度依然会被收缩 */
   flex-shrink: 0;

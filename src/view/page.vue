@@ -1,26 +1,30 @@
 <template>
-  <div class="page container">
-    <article>
-      <!--添加mavon-editor的样式话要加上类markdown-body-->
-      <p v-html="article"></p>
-    </article>
+  <div class="page">
+    <ShowArticle :Article="article" />
   </div>
 </template>
 
 <script>
+//展示文章
 import { markdownit } from "@/markdownit";
 import { api } from "@/http";
+import ShowArticle from "@/components/ShowArticle";
 export default {
   data() {
     return {
-      article: [],
+      article: "",
     };
   },
+  components: {
+    ShowArticle,
+  },
   methods: {
+    //展示文章
     getArticle() {
       api
         .get("article/" + this.$route.params.articleId)
         .then((res) => {
+          this.article = res.data;
           this.article = markdownit.render(res.data.content);
         })
         .catch((err) => {
@@ -37,7 +41,6 @@ export default {
 <style>
 .page {
   flex-grow: 1;
-  padding: 10px;
   overflow: hidden;
 }
 

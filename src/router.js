@@ -1,10 +1,11 @@
 //路由文件
 import index from "@/view/index";
-// import test from "@/view/test";
 
 import page from "@/view/page";
-import middle from "@/view/middle";
+import home from "@/view/home";
 import about from "@/view/about"
+import tagArticle from "@/view/tagArticle"
+import friend from "@/view/friend"
 
 let routes = [
   {
@@ -12,28 +13,29 @@ let routes = [
     component: index,
     //index模版里面有子路由，意味着index里面也需要router-view
     children: [
+      //都是同级路由，home页面默认加载
       {
         path: "",
-        component: middle,
+        component: home,
       },
       {
         path: "tagArticle/:tagId",
-        component: middle
+        component: tagArticle
       },
       {
         path: "page/:articleId",
         component: page,
       },
-      {
-        path: "about",
-        component: about
-      }
     ],
   },
-  // {
-  //   path: "/test",
-  //   component: test,
-  // },
+  {
+    path: "/about",
+    component: about
+  },
+  {
+    path: "/friend",
+    component: friend
+  }
 ];
 
 export { routes };
