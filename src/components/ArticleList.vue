@@ -83,7 +83,7 @@ header h3 {
   object-fit: cover;
 }
 
-article {
+.articleList article {
   display: flex;
   flex-direction: column;
   flex-grow: 1;

@@ -1,5 +1,5 @@
 <template>
-  <div class="friend">friend</div>
+  <div>manage home</div>
 </template>
 
 <script>
@@ -7,7 +7,4 @@ export default {};
 </script>
 
 <style>
-.friend {
-  margin: 10px;
-}
 </style>

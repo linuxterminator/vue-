@@ -20,7 +20,11 @@ export default {
     return {
       navList: [
         { name: "主页", path: "/", icon: "iconfont iconicon_huabanfuben" },
-        { name: "友链", path: "/friend", icon: "iconfont iconyouqinglianjie " },
+        {
+          name: "归档",
+          path: "/archive",
+          icon: "iconfont iconyouqinglianjie ",
+        },
         { name: "关于", path: "/about", icon: "iconfont iconguidang" },
       ],
     };

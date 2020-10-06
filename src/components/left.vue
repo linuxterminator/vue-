@@ -68,7 +68,7 @@ export default {
 }
 
 .left > .about > .attention > .attention-button {
-  width: 200px;
+  width: 90%;
   height: 40px;
 }
 
