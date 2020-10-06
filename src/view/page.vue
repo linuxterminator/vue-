@@ -1,6 +1,6 @@
 <template>
   <div class="page container">
-    <ShowArticle :Article="article" />
+    <ShowPage :Article="article" />
   </div>
 </template>
 
@@ -8,7 +8,7 @@
 //展示文章
 import { markdownit } from "@/markdownit";
 import { api } from "@/api/http";
-import ShowArticle from "@/components/ShowArticle";
+import ShowPage from "@/components/ShowPage";
 export default {
   data() {
     return {
@@ -16,7 +16,7 @@ export default {
     };
   },
   components: {
-    ShowArticle,
+    ShowPage,
   },
   methods: {
     //展示文章

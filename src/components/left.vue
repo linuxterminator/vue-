@@ -11,10 +11,9 @@
         <i :class="item" v-for="(item, index) in platform" :key="index"></i>
       </div>
     </div>
-
     <div class="left-all category container">
       <span>分类</span>
-      <list :list="category" itemName="name" />
+      <list :list="category" listKeyName="name" />
     </div>
   </div>
 </template>
@@ -53,13 +52,14 @@ export default {
 <style>
 .left-all {
   overflow: hidden;
+  padding: 10px;
+  margin: 10px 0;
 }
 
 .left > .about {
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  height: 330px;
 }
 
 .left > .about > .attention {
@@ -81,12 +81,5 @@ export default {
   font-size: 25px;
   margin: 0 7px;
   cursor: pointer;
-}
-
-/**分类区域css */
-.left > .category {
-  margin-top: 20px;
-  min-height: 180px;
-  padding: 10px;
 }
 </style>

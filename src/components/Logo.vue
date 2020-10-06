@@ -1,4 +1,5 @@
 <template>
+  <!--logo组件-->
   <div>
     <div class="logo">
       <img :src="logourl" alt="博客logo" width="100%" height="100%" />

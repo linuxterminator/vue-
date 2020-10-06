@@ -6,11 +6,11 @@
     </div>
     <div class="right-all newArticle container">
       <span>最新文章</span>
-      <list :list="newArticle" itemName="title" toWhat="tagArticle" />
+      <list :list="newArticle" listKeyName="title" :path="/page/" />
     </div>
-    <div class="right-all articleTag container">
+    <div class="right-all container">
       <div>标签</div>
-      <list :list="articleTag" itemName="tagName" toWhat="article" />
+      <list :list="articleTag" listKeyName="tagName" :path="/tagArticle/" />
     </div>
   </div>
 </template>
@@ -63,19 +63,12 @@ export default {
 </script>
 
 <style>
+.right {
+  overflow: hidden;
+}
 .right-all {
   padding: 10px;
   overflow: hidden;
-}
-
-.right > .announcement {
-  height: 120px;
-}
-.right > .newArticle {
   margin: 10px 0;
-}
-
-.textActive {
-  color: #3273dc;
 }
 </style>

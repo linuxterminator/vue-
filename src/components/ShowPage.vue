@@ -1,4 +1,5 @@
 <template>
+  <!--展示内容组件-->
   <div class="showArticle">
     <article>
       <div v-html="Article"></div>

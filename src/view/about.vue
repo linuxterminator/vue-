@@ -7,14 +7,13 @@
       <div></div>
     </div>
     <div class="container showBlogMessage">
-      <ShowArticle :Article="blogMessage" />
+      <ShowPage :Article="blogMessage" />
     </div>
   </div>
 </template>
-
 <script>
 //关于我
-import ShowArticle from "@/components/ShowArticle";
+import ShowPage from "@/components/ShowPage";
 import Logo from "@/components/Logo";
 import { markdownit } from "@/markdownit";
 import { api } from "@/api/http";
@@ -26,7 +25,7 @@ export default {
     };
   },
   components: {
-    ShowArticle,
+    ShowPage,
     Logo,
   },
   methods: {

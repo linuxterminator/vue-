@@ -1,4 +1,5 @@
 <template>
+  <!--文章列表组件-->
   <div class="articleList">
     <div
       v-for="(item, index) in articleList"

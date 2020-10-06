@@ -1,8 +1,11 @@
 <template>
+  <!--列表组件-->
   <div class="list">
     <ul>
       <li v-for="(item, index) of list" :key="index">
-        <span @click="whatUseMe(item[itemName])">{{ item[itemName] }}</span>
+        <span @click="toNext(item[listKeyName])" class="textActive">{{
+          item[listKeyName]
+        }}</span>
       </li>
     </ul>
   </div>
@@ -10,25 +13,16 @@
 
 <script>
 export default {
-  //三个props，一个是要传进来的列表，一个是键的名字，还有是要去哪个页面的方法
-  props: ["list", "itemName", "toWhat"],
+  //三个props，一个是要传进来的列表，一个是键的名字，还有要去的页面的url
+  //itemName是因为传入对象的键可能会不同而需要调用的父组件传入
+  props: ["list", "listKeyName", "path"],
   methods: {
-    //跳转最新文章
-    toPage(articleName) {
-      this.$router.push("/page/" + articleName);
-    },
-    //跳转标签下的文章
-    toArticleUnderTag(tagName) {
-      this.$router.push("/tagArticle/" + tagName);
-    },
-    //判断当前组件被谁使用，好进行不同的跳转
-    whatUseMe(name) {
-      if (this.toWhat == "tagArticle") {
-        this.toPage(name);
-      } else if (this.toWhat == "article") {
-        this.toArticleUnderTag(name);
-      } else {
+    //页面跳转,要跳转的路由加上名字，没有传入path则代表不需要跳转
+    toNext(name) {
+      if (this.path == undefined) {
         return;
+      } else {
+        this.$router.push(this.path + name);
       }
     },
   },
@@ -45,4 +39,7 @@ export default {
 </script>
 
 <style>
+.textActive:hover {
+  color: #3273dc;
+}
 </style>

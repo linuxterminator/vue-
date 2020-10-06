@@ -14,8 +14,8 @@
 </template>
 
 <script>
-import left from "@/view/left";
-import right from "@/view/right";
+import left from "@/components/left";
+import right from "@/components/right";
 import { api } from "@/api/http.js";
 import { markdownit } from "@/markdownit";
 
@@ -68,14 +68,14 @@ export default {
 
 .app-body > .right-div,
 .left-div {
-  width: 20%;
-  margin: 10px 20px;
+  width: 18%;
+  margin: 0 20px;
   /**防止子元素因为设置了宽度依然会被收缩 */
   flex-shrink: 0;
 }
 
 .app-body > .middle-div {
   flex-grow: 1;
-  margin: 10px;
+  margin: 10px 0px;
 }
 </style>
