@@ -1,47 +1,36 @@
 <template>
   <div id="main">
+    <!--markdown-->
     <div>
       <mavon-editor v-model="Article.content" />
     </div>
-    <div class="input-container">
+    <!--文章信息-->
+    <div
+      v-for="(item, index) in inputList"
+      :key="'inputList' + index"
+      class="input-container"
+    >
       <input
         type="text"
-        placeholder="文章标题"
         class="input-primary"
-        v-model="Article.title"
+        :placeholder="item.name"
+        v-model="Article[item.pro]"
       />
     </div>
-    <div class="input-container">
-      <input
-        type="text"
-        placeholder="文章描述"
-        class="input-primary"
-        v-model="Article.introduction"
-      />
-    </div>
-    <div class="input-container">
-      <input
-        type="text"
-        placeholder="文章作者"
-        class="input-primary"
-        v-model="Article.author"
-      />
-    </div>
-    <div class="input-container">
-      <input
-        type="text"
-        placeholder="文章封面图"
-        class="input-primary"
-        v-model="Article.img"
-      />
-    </div>
-    <span v-for="(item, index) in tagList" :key="index" class="check-span">
+    <!--标签选择-->
+    <span
+      v-for="(item, index) in tagList"
+      :key="'tag' + index"
+      class="check-span"
+    >
       <input type="checkbox" v-model="Article.tagList" :value="item" />
       <label>{{ item.tagName }}</label>
     </span>
+    <!--按钮-->
     <div>
       <button class="main-button" @click="submitArticle">提交</button>
     </div>
+    {{ Article }}
   </div>
 </template>
 
@@ -50,14 +39,22 @@ import { api } from "@/api/http";
 export default {
   data() {
     return {
+      //data里面不能使用this，所以只能通过这种数据结构来实现
+      //输入框循环的内容
+      inputList: [
+        { name: "文章标题", pro: "title" },
+        { name: "文章描述", pro: "introduction" },
+        { name: "文章作者", pro: "author" },
+        { name: "文章封面", pro: "img" },
+      ],
       tagList: [],
-      //文章
+      //文章对象
       Article: {
-        content: "",
         title: "",
-        author: "",
         introduction: "",
+        author: "",
         img: "",
+        content: "",
         tagList: [],
       },
     };

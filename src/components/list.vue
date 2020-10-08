@@ -13,7 +13,7 @@
 
 <script>
 export default {
-  //三个props，一个是要传进来的列表，一个是键的名字，还有要去的页面的url
+  //三个props，一个是要传进来的列表，一个是键的名字(不同对象数组的键是不同的,listKeyName是键的值，根据名字来获取数据)，还有要去的页面的url
   //itemName是因为传入对象的键可能会不同而需要调用的父组件传入
   props: ["list", "listKeyName", "path"],
   methods: {
