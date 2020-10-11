@@ -11,6 +11,7 @@ import home from "@/view/fontend/home"
 import admin from "@/view/admin/admin"
 import write from "@/view/admin/write"
 import managehome from "@/view/admin/home"
+import bloginfo from "@/view/admin/bloginfo"
 
 //路由结构
 //  +app
@@ -71,6 +72,10 @@ let routes = [
       {
         path: "/write",
         component: write
+      },
+      {
+        path: "/bloginfo",
+        component: bloginfo
       }
     ]
   }

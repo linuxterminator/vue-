@@ -1,7 +1,7 @@
 <template>
   <div class="app-container">
     <div class="app-head container">
-      <navigation />
+      <navigation :navList="navList" />
     </div>
     <div class="app-body">
       <router-view></router-view>
@@ -13,7 +13,17 @@
 import navigation from "@/components/navigation";
 export default {
   data() {
-    return {};
+    return {
+      navList: [
+        { name: "主页", path: "/", icon: "iconfont iconicon_huabanfuben" },
+        {
+          name: "归档",
+          path: "/archive",
+          icon: "iconfont iconyouqinglianjie ",
+        },
+        { name: "关于", path: "/about", icon: "iconfont iconguidang" },
+      ],
+    };
   },
   components: {
     navigation,

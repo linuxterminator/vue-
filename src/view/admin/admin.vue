@@ -26,6 +26,7 @@ export default {
       navList: [
         { path: "/write", name: "markdown" },
         { path: "/huqingshan", name: "首页" },
+        { path: "/bloginfo", name: "博客信息" },
       ],
     };
   },
@@ -70,5 +71,6 @@ export default {
   margin: 10px;
   height: 100%;
   flex-grow: 1;
+  overflow: auto;
 }
 </style>

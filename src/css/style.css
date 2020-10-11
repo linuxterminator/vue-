@@ -8,8 +8,8 @@ h1,h2,h3,h4,h5,h6{
   font-family: "hanyi";
 }
 
-/*设置code的字体也为这个*/
-code,span,button{
+/*直接使用*来设置所有字体都为这个字体*/
+*{
   font-family: "hanyi";
 }
 
@@ -48,6 +48,18 @@ li > span{
   border: 1px solid rgba(0, 0, 0, 0);
 }
 
+/*文本框*/
+.textarea-primary{
+  outline: none;
+  border-radius: 4px;
+  border: 1px solid rgba(0, 0, 0, 0);
+}
+
+/*禁止拖动*/
+textarea{
+  resize: none;
+}
+
 input{
   outline:none
 }
@@ -61,6 +73,7 @@ input{
   color: white;
   cursor: pointer;
   outline: none;
+  padding:5px;
 }
 
 /*代码圆角*/
