@@ -1,22 +1,16 @@
 <template>
   <div class="textarea-container">
-    <div
-      v-for="(item, index) in textareaList"
-      :key="index"
-      class="textarea-div"
-    >
       <div class="textarea-name">
-        <span>{{ item.name }}</span>
+        <span>{{ inputData.name }}</span>
       </div>
       <div>
         <textarea
           type="text"
           class="input-primary"
-          v-model="textareaList[index].data"
-          :placeholder="item.placeholder"
+          v-model="inputData.data"
+          :placeholder="inputData.placeholder"
         />
       </div>
-    </div>
   </div>
 </template>
 
@@ -25,13 +19,14 @@ export default {
   data() {
     return {};
   },
-  props: ["textareaList"],
+  props: ["inputData"],
 };
 </script>
 
 <style>
 .textarea-container {
   overflow: hidden;
+  margin: 10px;
 }
 
 .textarea-name {
@@ -41,9 +36,5 @@ export default {
 .textarea-container textarea {
   width: 400px;
   height: 100px;
-}
-
-.textarea-div {
-  margin: 10px;
 }
 </style>

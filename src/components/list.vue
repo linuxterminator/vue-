@@ -42,4 +42,8 @@ export default {
 .textActive:hover {
   color: #3273dc;
 }
+
+.list ul {
+  padding-left: 7%;
+}
 </style>

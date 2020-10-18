@@ -14,8 +14,8 @@
 </template>
 
 <script>
-import left from "@/components/left";
-import right from "@/components/right";
+import left from "@/view/fontend/left";
+import right from "@/view/fontend/right";
 import { api } from "@/api/http.js";
 import { markdownit } from "@/markdownit";
 

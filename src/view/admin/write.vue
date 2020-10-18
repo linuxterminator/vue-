@@ -6,7 +6,16 @@
     </div>
     <!--文章信息-->
     <div>
-      <inputPrimary :inputList="inputList" />
+      <inputPrimary :inputData="title" />
+    </div>
+    <div>
+      <inputPrimary :inputData="introduction" />
+    </div>
+    <div>
+      <inputPrimary :inputData="author" />
+    </div>
+    <div>
+      <inputPrimary :inputData="img" />
     </div>
     <!--标签选择-->
     <div>
@@ -16,7 +25,6 @@
     <div>
       <button class="main-button" @click="submitArticle">提交</button>
     </div>
-    {{ Article }}
   </div>
 </template>
 
@@ -31,14 +39,10 @@ export default {
   },
   data() {
     return {
-      //data里面数据之间好像不能互相访问
-      //输入框循环的内容,分别是input里面的占位符，input上方的名字，还有数据，这里数据是一样的
-      inputList: [
-        { placeholder: "文章标题", name: "文章标题:", data: "" },
-        { placeholder: "文章描述", name: "文章描述:", data: "" },
-        { placeholder: "文章作者", name: "文章作者:", data: "" },
-        { placeholder: "文章封面", name: "文章封面:", data: "" },
-      ],
+      title:{ placeholder: "文章标题", name: "文章标题:", data: "" },
+      introduction:{ placeholder: "文章描述", name: "文章描述:", data: "" },
+      author:{ placeholder: "文章作者", name: "文章作者:", data: "" },
+      img:{ placeholder: "文章封面", name: "文章封面:", data: "" },
       //选择标签的内容
       tagList: [],
       //文章对象
@@ -56,16 +60,16 @@ export default {
   computed: {
     //计算属性是这样写的，而不是returnTitle:()=>{},reuturnTitle(){}是es6简写
     returnTitle() {
-      return this.inputList[0].data;
+      return this.title.data;
     },
     returnIntroduction() {
-      return this.inputList[1].data;
+      return this.introduction.data;
     },
     returnAuthor() {
-      return this.inputList[2].data;
+      return this.author.data;
     },
     returnImg() {
-      return this.inputList[3].data;
+      return this.img.data;
     },
   },
   watch: {
@@ -94,9 +98,6 @@ export default {
           this.tagList = res.data;
           // console.log(res.data);
         })
-        .catch((err) => {
-          console.log(err);
-        });
     },
     //提交文章
     submitArticle() {
@@ -114,9 +115,6 @@ export default {
           .then((res) => {
             console.log(res.data);
           })
-          .catch((err) => {
-            console.log(err);
-          });
       }
     },
   },

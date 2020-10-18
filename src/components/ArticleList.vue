@@ -13,7 +13,7 @@
       <article>
         <!--标题-->
         <header>
-          <h3>{{ item.title }}</h3>
+          <span>{{ item.title }}</span>
         </header>
         <!--主体-->
         <p @click="toPage(item.title)" class="text-blue">
@@ -56,7 +56,7 @@ header h3 {
   margin: 10px 0;
 }
 
-.articleList span {
+.articleList footer span {
   font-size: 9px;
   margin-right: 10px;
   cursor: pointer;
@@ -87,35 +87,37 @@ header h3 {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
-}
-
-.article-item article {
   height: 100%;
 }
 
 .article-item header {
-  height: 80px;
+  height: 20%;
   text-align: left;
   overflow: hidden;
   margin-bottom: 10px;
   margin-top: 10px;
   padding: 0 15px;
+  font-size: 1.5rem;
 }
 
 article p {
-  height: 100%;
   text-align: left;
   flex-grow: 1;
   margin: 0;
   cursor: pointer;
   padding: 0 15px;
-  font-size: 17px;
+  font-size: 1rem;
 }
 
 article footer {
-  height: 35px;
+  height: 15%;
   line-height: 35px;
-  margin-bottom: 10px;
   padding: 0 15px;
+}
+
+@media screen and (max-width: 400px) {
+  .article-item {
+    height: 80px;
+  }
 }
 </style>

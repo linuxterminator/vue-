@@ -29,4 +29,11 @@ export default {
   text-align: center;
   margin: 20px 0;
 }
+
+@media screen and (max-width: 400px) {
+  .logo {
+    width: 50px;
+    height: 50px;
+  }
+}
 </style>
