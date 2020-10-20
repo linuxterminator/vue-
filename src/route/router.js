@@ -12,6 +12,7 @@ import admin from "@/view/admin/admin"
 import write from "@/view/admin/write"
 import managehome from "@/view/admin/home"
 import bloginfo from "@/view/admin/bloginfo"
+import articleTable from "@/view/admin/articleTable"
 
 //路由结构
 //  +app
@@ -76,6 +77,10 @@ let routes = [
       {
         path: "/bloginfo",
         component: bloginfo
+      },
+      {
+        path:"/articleTable",
+        component:articleTable
       }
     ]
   }

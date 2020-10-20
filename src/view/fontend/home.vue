@@ -2,6 +2,7 @@
   <div class="app-container">
     <div class="app-head container">
       <navigation :navList="navList" />
+      
     </div>
     <div class="app-body">
       <router-view></router-view>

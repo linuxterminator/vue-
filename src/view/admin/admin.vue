@@ -24,9 +24,10 @@ export default {
   data() {
     return {
       navList: [
-        { path: "/write", name: "markdown" },
         { path: "/huqingshan", name: "首页" },
-        { path: "/bloginfo", name: "博客信息" },
+        { path: "/articleTable", name: "文章列表" },
+        { path: "/write", name: "markdown" },
+        { path: "/bloginfo", name: "设置" },
       ],
     };
   },
