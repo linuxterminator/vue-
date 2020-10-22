@@ -3,12 +3,12 @@
     <div class="left-div">
       <div class="container" style="margin-bottom:10px">
           <!--logo-->
-          <div style="overflow:hidden">
+          <div class="index-logo">
             <Logo :logourl="Blog.logo" />
           </div>
           <!--按钮-->
           <div class="attention-div">
-            <button class="main-button attention-button">别点我</button>
+            <button class="main-button attention-button" @click="dontClickMe">别点我</button>
           </div>
           <!--图标-->
           <div class="platform">
@@ -90,6 +90,9 @@ export default {
     };
   },
   methods: {
+    dontClickMe(){
+      alert("按钮没做好，别点我!")
+    },
     //获取博客信息
     getBlogInfo() {
       api
@@ -150,10 +153,11 @@ export default {
 
 .attention-div{
   text-align: center;
+  padding:10px 0;
 }
 
 .attention-button{
-  width:60%;
+  width:70%;
   padding:10px;
 }
 
@@ -165,6 +169,13 @@ export default {
 
 .platform {
   text-align: center;
+}
+
+.index-logo{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  padding:20px 0;
 }
 
 </style>
