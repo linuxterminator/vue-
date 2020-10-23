@@ -128,4 +128,8 @@ export default {
 .check-span {
   margin: 0 10px;
 }
+
+#main{
+  margin:10px
+}
 </style>

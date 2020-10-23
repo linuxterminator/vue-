@@ -137,5 +137,4 @@ export default {
 .admin-chart-bar{
   flex-grow: 1;
 }
-
 </style>

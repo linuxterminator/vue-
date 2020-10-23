@@ -51,6 +51,7 @@ export default {
         border-collapse: collapse;
         background-color: rgba(255, 255, 255, 0.85);
         width:100%;
+        
     }
 
     td,th,tr{

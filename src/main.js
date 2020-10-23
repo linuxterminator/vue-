@@ -4,8 +4,6 @@ import VueRouter from "vue-router";
 
 //引入自己的全局css
 import "./css/style.css";
-//阿里图标
-import "./icon/iconfont.css";
 
 import { routes } from "./route/router";
 Vue.use(VueRouter);

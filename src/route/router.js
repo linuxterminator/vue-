@@ -6,6 +6,7 @@ import about from "@/view/fontend/about"
 import tagArticle from "@/view/fontend/tagArticle"
 import archive from "@/view/fontend/archive"
 import home from "@/view/fontend/home"
+import leaveMessage from "@/view/fontend/leaveMessage";
 
 //管理
 import admin from "@/view/admin/admin"
@@ -51,9 +52,13 @@ let routes = [
             component: page,
           },
           {
-            path: "/archive",
+            path: "archive",
             component: archive
           },
+          {
+            path:"leaveMessage",
+            component:leaveMessage
+          }
         ]
       },
       {

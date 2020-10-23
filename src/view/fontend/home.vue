@@ -2,7 +2,6 @@
   <div class="app-container">
     <div class="app-head container">
       <navigation :navList="navList" />
-      
     </div>
     <div class="app-body">
       <router-view></router-view>
@@ -17,11 +16,8 @@ export default {
     return {
       navList: [
         { name: "主页", path: "/", icon: "iconfont iconicon_huabanfuben" },
-        {
-          name: "归档",
-          path: "/archive",
-          icon: "iconfont iconyouqinglianjie ",
-        },
+        { name: "归档",path: "/archive",icon: "iconfont iconyouqinglianjie "},
+        { name:"留言板",path:"/leaveMessage",icon:"iconfont iconliuyanban-05"},
         { name: "关于", path: "/about", icon: "iconfont iconguidang" },
       ],
     };
