@@ -35,7 +35,7 @@ export default {
         { path: "/huqingshan", name: "首页",icon:"iconfont iconpanel"},
         { path: "/articleTable", name: "文章列表",icon:"iconfont iconliebiao"},
         { path: "/write", name: "markdown",icon:"iconfont iconfinancial_markdown"},
-        { path: "/bloginfo", name: "留言",icon:"iconfont iconshezhi"},
+        { path: "/messageManage", name: "留言",icon:"iconfont iconicon-test2"},
         { path: "/bloginfo", name: "设置",icon:"iconfont iconshezhi"},
       ],
     };

@@ -9,6 +9,7 @@
           class="input-primary"
           :placeholder="inputData.placeholder"
           v-model="inputData.data"
+          :style="{width:width+'px',height:height+'px'}"
         />
       </div>
   </div>
@@ -19,7 +20,15 @@ export default {
   data() {
     return {};
   },
-  props: ["inputData"],
+  props: {
+    inputData:Object,
+    width:{
+      default:400
+    },
+    height:{
+      default:30
+    }
+  },
 };
 </script>
 

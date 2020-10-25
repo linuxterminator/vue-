@@ -1,7 +1,7 @@
 <template>
   <div class="app-body">
     <div class="left-div">
-      <div class="container" style="margin-bottom:10px">
+      <div class="container left-show" style="margin-bottom:10px">
           <!--logo-->
           <div class="index-logo">
             <Logo :logourl="Blog.logo" />
@@ -14,11 +14,6 @@
           <div class="platform">
             <i :class="item" v-for="(item, index) in platform" :key="index"></i>
           </div>
-      </div>
-      <!--分类-->
-      <div class="category container addpadding" style="margin-bottom:10px">
-        <span>分类</span>
-        <list :list="category" listKeyName="name" />
       </div>
     </div>
 
@@ -79,14 +74,6 @@ export default {
         announcement: "",
         message: "",
       },
-      //分类
-      category: [
-        { name: "日志", icon: "iconfont iconicon-test1" },
-        { name: "教程", icon: "iconfont iconcaishichang-" },
-        { name: "笔记", icon: "iconfont iconbiji" },
-        { name: "分类", icon: "iconfont iconfenlei" },
-        { name: "其他", icon: "iconfont iconqita" },
-      ],
     };
   },
   methods: {
@@ -134,7 +121,7 @@ export default {
 .app-body {
   /**flex布局不要设置高度 */
   display: flex;
-  margin-top: 10px;
+  padding-top: 10px;
   align-items: flex-start;
   width: 100%;
 }
@@ -176,6 +163,10 @@ export default {
   justify-content: center;
   align-items: center;
   padding:20px 0;
+}
+
+.left-show{
+  height:300px;
 }
 
 </style>

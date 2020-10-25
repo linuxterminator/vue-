@@ -98,6 +98,7 @@ header h3 {
   margin-top: 10px;
   padding: 0 15px;
   font-size: 1.5rem;
+  color:#3273dc
 }
 
 article p {

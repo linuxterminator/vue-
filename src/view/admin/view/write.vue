@@ -113,7 +113,10 @@ export default {
         api
           .post("/article", this.Article)
           .then((res) => {
-            console.log(res.data);
+            // console.log(res.data);
+            if(res.status == 200){
+              alert("提交成功")
+            }
           })
       }
     },

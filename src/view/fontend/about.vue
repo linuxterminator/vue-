@@ -1,13 +1,17 @@
 <template>
   <div class="aboutme">
-    <div class="container showSelf">
-      <Logo :logourl="blogLogo" />
-      <div>安徽合肥市</div>
-      <div>标签</div>
-      <div></div>
+    <div class="about-title">
+      <vue-typed-js :strings="['关于我']" :typeSpeed="150">
+        <span class="typing"></span>
+      </vue-typed-js>
     </div>
     <div class="container showBlogMessage">
-      <ShowPage :Article="blogMessage" />
+      <div class="blog-logo">
+        <Logo :logourl="blogLogo" />
+      </div>
+      <div class="logo-info">
+        <ShowPage :Article="blogMessage" />
+      </div>
     </div>
   </div>
 </template>
@@ -51,20 +55,30 @@ export default {
 
 <style>
 .aboutme {
-  height: 100%;
-  display: flex;
   overflow: hidden;
 }
 
-.showSelf {
-  display: flex;
-  flex-direction: column;
-  width: 35%;
-  margin: 25px 10px 25px 25px;
-  padding: 10px;
+.showBlogMessage {
+  margin: 10px 170px 10px 170px;
+  padding:20px 30px;
+  min-height: 540px;
 }
 
-.showBlogMessage {
-  margin: 25px 25px 25px 10px;
+.blog-logo{
+  display:flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.about-title{
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  height: 150px;
+}
+
+.about-title span{
+  font-size: 2.1rem;
+  font-weight: 900;
 }
 </style>

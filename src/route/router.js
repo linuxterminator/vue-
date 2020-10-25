@@ -9,11 +9,12 @@ import home from "@/view/fontend/home"
 import leaveMessage from "@/view/fontend/leaveMessage";
 
 //管理
-import admin from "@/view/admin/admin"
-import write from "@/view/admin/write"
-import managehome from "@/view/admin/home"
-import bloginfo from "@/view/admin/bloginfo"
-import articleTable from "@/view/admin/articleTable"
+import adminIndex from "@/view/admin/index"
+import write from "@/view/admin/view/write"
+import managehome from "@/view/admin/view/home"
+import bloginfo from "@/view/admin/view/bloginfo"
+import articleTable from "@/view/admin/view/articleTable"
+import messageManage from "@/view/admin/view/messageManage"
 
 //路由结构
 //  +app
@@ -51,15 +52,15 @@ let routes = [
             path: "page/:articleId",
             component: page,
           },
-          {
-            path: "archive",
-            component: archive
-          },
-          {
-            path:"leaveMessage",
-            component:leaveMessage
-          }
         ]
+      },
+      {
+        path:"leaveMessage",
+        component:leaveMessage
+      },
+      {
+        path: "archive",
+        component: archive
       },
       {
         path: "/about",
@@ -69,7 +70,7 @@ let routes = [
   },
   {
     path: "/huqingshan",
-    component: admin,
+    component: adminIndex,
     children: [
       {
         path: "",
@@ -86,6 +87,10 @@ let routes = [
       {
         path:"/articleTable",
         component:articleTable
+      },
+      {
+        path:"/messageManage",
+        component:messageManage
       }
     ]
   }

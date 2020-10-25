@@ -29,7 +29,7 @@ li > span{
 /*容器外观和背景颜色和圆角*/
 .container{
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05), 0 0 1px rgba(0, 0, 0, 0.1);
-  border-radius: 4px;
+  border-radius: 3px;
   background-color: rgba(255, 255, 255, 0.85);
 }
 
@@ -59,17 +59,12 @@ li > span{
 /*输入框*/
 .input-primary {
   outline: none;
-  width: 400px;
-  height: 30px;
   border-radius: 4px;
-  border: 1px solid rgba(0, 0, 0, 0);
+  border: 1px solid #cad1d7;
 }
 
-/*文本框*/
-.textarea-primary{
-  outline: none;
-  border-radius: 4px;
-  border: 1px solid rgba(0, 0, 0, 0);
+.input-primary:focus{
+  border-color: #409eff;
 }
 
 /*禁止拖动*/

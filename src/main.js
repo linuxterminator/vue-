@@ -2,6 +2,18 @@ import Vue from "vue";
 import App from "./App.vue";
 import VueRouter from "vue-router";
 
+//全局组件
+import inputPrimary from "@/components/inputPrimary"
+import textareaPrimary from "@/components/textareaPrimary"
+Vue.component("input-primary",inputPrimary)
+Vue.component("textarea-primary",textareaPrimary)
+
+
+//打字机
+import VueTypedJs from 'vue-typed-js'
+Vue.use(VueTypedJs)
+
+
 //引入自己的全局css
 import "./css/style.css";
 
@@ -22,12 +34,6 @@ import "mavon-editor/dist/css/index.css";
 //引入mavon-editor的话，highlight的样式会被覆盖,应为要想使用他的样式的话，
 //你必须在样式里面加上markdown-body，这样highlight就不会被加载
 //不使用mavon-editor里的highlight外链，使用本地加载试试？
-
-//highlight.js的样式
-//不过这个样式有点问题，有时候需要刷新才能出现
-import "highlight.js/styles/atom-one-dark.css";
-//第三方markdown样式
-import "./markdownstyle/purple.css";
 Vue.use(mavonEditor);
 
 Vue.config.productionTip = false;

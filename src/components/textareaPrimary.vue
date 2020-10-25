@@ -9,6 +9,7 @@
           class="input-primary"
           v-model="inputData.data"
           :placeholder="inputData.placeholder"
+          :style="{width:width+'px',height:height+'px'}"
         />
       </div>
   </div>
@@ -19,7 +20,15 @@ export default {
   data() {
     return {};
   },
-  props: ["inputData"],
+  props:{
+    inputData:Object,
+    width:{
+      default:400
+    },
+    height:{
+      default:100
+    }
+  },
 };
 </script>
 
@@ -31,10 +40,5 @@ export default {
 
 .textarea-name {
   margin: 5px 0;
-}
-
-.textarea-container textarea {
-  width: 400px;
-  height: 100px;
 }
 </style>

@@ -9,7 +9,6 @@
         <i :class="item.icon"></i>
         <span class="text-blue">{{ item.name }}</span>
       </router-link>
-      <span class="blogName">Narcissus'Blog</span>
     </nav>
   </div>
 </template>
@@ -26,7 +25,7 @@ export default {
 <style>
 .navigation {
   line-height: 60px;
-  padding: 0 20px;
+  padding: 0 70px;
 }
 
 .navigation span {
@@ -36,15 +35,10 @@ export default {
 
 .navigation a {
   text-decoration: none;
-  color: #565a5f;
   padding: 0 12px;
-  color: #6c549c;
 }
 
-.blogName {
-  position: absolute;
-  right: 70px;
-  font-size: 23px !important;
-  color: rgba(92, 143, 25, 0.795);
+.navigation a:hover{
+  color:#3273dc
 }
 </style>

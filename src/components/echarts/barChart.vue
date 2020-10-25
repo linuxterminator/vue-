@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import "../../../node_modules/echarts/theme/azul"
+// import "../../../node_modules/echarts/theme/azul"
 import echarts from "echarts";
 import {api} from "@/api/http"
 export default {

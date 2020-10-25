@@ -17,6 +17,7 @@ export default {
   height: 130px;
   width: 130px;
   overflow: hidden;
+  box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.1)
 }
 
 @media screen and (max-width: 400px) {
