@@ -1,10 +1,12 @@
 <template>
   <div class="aboutme">
+
     <div class="about-title">
       <vue-typed-js :strings="['关于我']" :typeSpeed="150">
         <span class="typing"></span>
       </vue-typed-js>
     </div>
+
     <div class="container showBlogMessage">
       <div class="blog-logo">
         <Logo :logourl="blogLogo" />
@@ -13,6 +15,7 @@
         <ShowPage :Article="blogMessage" />
       </div>
     </div>
+
   </div>
 </template>
 <script>
@@ -55,12 +58,17 @@ export default {
 
 <style>
 .aboutme {
-  overflow: hidden;
+  width:100%;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  padding:20px;
+  overflow:auto
 }
 
 .showBlogMessage {
-  margin: 10px 170px 10px 170px;
-  padding:20px 30px;
+  width:1000px;
+  padding:20px;
   min-height: 540px;
 }
 
@@ -75,10 +83,17 @@ export default {
   align-items: center;
   justify-content: center;
   height: 150px;
+  width:100%;
 }
 
 .about-title span{
   font-size: 2.1rem;
   font-weight: 900;
+}
+
+@media screen and (max-width: 375px){
+  .showBlogMessage{
+    width:250px;
+  }
 }
 </style>

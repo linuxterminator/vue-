@@ -1,12 +1,12 @@
 //前台
-import index from "@/view/fontend/index";
+import home from "@/view/fontend/view/home";
 import page from "@/view/fontend/page";
 import articleList from "@/view/fontend/articleList";
-import about from "@/view/fontend/about"
+import about from "@/view/fontend/view/about"
 import tagArticle from "@/view/fontend/tagArticle"
-import archive from "@/view/fontend/archive"
-import home from "@/view/fontend/home"
-import leaveMessage from "@/view/fontend/leaveMessage";
+import archive from "@/view/fontend/view/archive"
+import index from "@/view/fontend/index"
+import leaveMessage from "@/view/fontend/view/leaveMessage";
 
 //管理
 import adminIndex from "@/view/admin/index"
@@ -32,13 +32,13 @@ import messageManage from "@/view/admin/view/messageManage"
 let routes = [
   {
     path: "/",
-    component: home,
+    component: index,
     //index模版里面有子路由，意味着index里面也需要router-view
     children: [
       //都是同级路由，home页面默认加载
       {
         path: "",
-        component: index,
+        component: home,
         children: [
           {
             path: "",

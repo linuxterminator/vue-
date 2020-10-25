@@ -7,21 +7,21 @@
             </vue-typed-js>
         </div>
 
-        <div class="write-leave-message container">
+        <div class="leave-message-body container">
             <div class="message-input-head">
                 <input-primary :inputData="name" :width="220" :height="40"/>
                 <input-primary :inputData="email" :width="220" :height="40"/>
                 <input-primary :inputData="test" :width="220" :height="40"/>
             </div>
             <div class="message-input-body">
-                <textarea-primary :inputData="message" :width="710" :height="300"/>
+                <textarea-primary :inputData="message" :width="710" :height="270"/>
             </div>
             <div class="message-button-position">
                 <button class="leave-message-button" @click="sendMessage()">提交留言</button>
             </div>
         </div>
 
-        <div class="leaveMessage container">
+        <div class="leave-message container">
             <div v-for="(item,index) in leaveMessageList" :key="index" class="root-message">
                 <div class="root-message-head">
                     <span class="message-user-name">{{item.name}}</span>
@@ -112,13 +112,35 @@ export default {
 
 <style>
 .leave-message-container{
-    margin: 10px 150px 10px 150px;
-    padding:20px 30px;
+    padding:20px;
     min-height: 540px;
-    width:100%
+    width:100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 }
 
-.leaveMessage{
+.leave-message-title{
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  height: 150px;
+  width:100%;
+}
+
+.leave-message-body{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom:50px;
+    padding-bottom:30px;
+    padding-top:10px;
+    width:1000px;
+    padding:20px;
+}
+
+.leave-message{
+    width:1000px;
     padding:20px;
 }
 
@@ -176,28 +198,13 @@ export default {
     cursor: pointer;
 }
 
-.leave-message-title{
-  display:flex;
-  align-items: center;
-  justify-content: center;
-  height: 150px;
-}
 
 .leave-message-title span{
   font-size: 2.1rem;
   font-weight: 900;
 }
 
-.write-leave-message{
-    display:flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom:50px;
-    padding-bottom:30px;
-    padding-top:10px;
-}
-
-.write-leave-message .message-input-head{
+.leave-message-body .message-input-head{
     display:flex;
 }
 
@@ -219,7 +226,19 @@ export default {
 
 .message-button-position{
     display:flex;
-    width:710px;
+    width:100%;
     justify-content:flex-end;
+}
+
+@media screen and (max-width:375px ){
+    .leave-message-body{
+        width:250px
+    }
+    .leave-message{
+        width:250px
+    }
+    html{
+        font-size:1px;
+    }
 }
 </style>

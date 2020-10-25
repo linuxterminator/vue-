@@ -18,6 +18,7 @@ export default {
       api
         .get("/tag/" + this.$route.params.tagId)
         .then((res) => {
+          console.log(res.data)
           this.tagArticle = res.data;
         })
         .catch((err) => {

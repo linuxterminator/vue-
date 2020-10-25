@@ -1,172 +1,149 @@
 <template>
-  <div class="app-body">
-    <div class="left-div">
-      <div class="container left-show" style="margin-bottom:10px">
-          <!--logo-->
-          <div class="index-logo">
-            <Logo :logourl="Blog.logo" />
-          </div>
-          <!--按钮-->
-          <div class="attention-div">
-            <button class="main-button attention-button" @click="dontClickMe">别点我</button>
-          </div>
-          <!--图标-->
-          <div class="platform">
-            <i :class="item" v-for="(item, index) in platform" :key="index"></i>
-          </div>
-      </div>
+  <div class="app-container">
+
+    <div class="app-head" :class="{index:showWelcome,other:!showWelcome}">
+      <navigation :navList="navList" />
     </div>
 
-    <div class="middle-div">
-      <!--如果子组件在router-view中，可以直接通过router-view向子组件传props数据-->
-      <router-view :key="$route.fullPath"></router-view>
+    <div class="blog-welcome" v-if="showWelcome">
+      <div class="blog-name">
+          <vue-typed-js :strings="['我打江南走过，那等在季节里的容颜如莲花的开落','欢迎光临我的博客']" :typeSpeed="150">
+            <span class="typing"></span>
+          </vue-typed-js>
+      </div>
+      <div class="img-cover"></div>
+      <div class="to-bottom"><i class="iconfont iconxiangxia" @click="toShow()"></i></div>
+      <img width="100%" height="100%" src="https://qingshanblog.oss-cn-hangzhou.aliyuncs.com/backimg.PNG"/>
     </div>
 
-    <div class="right-div">
-      <!--公告-->
-      <div class="container addpadding" style="margin-bottom:10px">
-        <div>公告</div>
-        <p>{{ Blog.announcement }}</p>
-      </div>
-      <!--最新文章-->
-      <div class="container addpadding" style="margin-bottom:10px">
-          <span>最新文章</span>
-          <list :list="newArticle" listKeyName="title" :path="/page/" />
-      </div>
-      <!--标签-->
-      <div class="container addpadding" style="margin-bottom:10px">
-        <div>标签</div>
-        <list :list="articleTag" listKeyName="tagName" :path="/tagArticle/" />
-      </div>
+    <div class="app-body">
+      <router-view></router-view>
     </div>
+
   </div>
 </template>
 
 <script>
-import list from "@/components/list";
-import Logo from "@/components/Logo";
-import { api } from "@/api/http.js";
-import { markdownit } from "@/markdownit";
-
+import navigation from "@/components/navigation";
 export default {
-  components: {
-    list,
-    Logo
-  },
   data() {
     return {
-      //最新文章
-      newArticle: [],
-      //文章标签
-      articleTag: [],
-      //图标
-      platform: [
-        "iconfont iconpengyouquan",
-        "iconfont iconweixin",
-        "iconfont icongithub",
-        "iconfont iconbilibili-line",
+      navList: [
+        { name: "主页", path: "/", icon: "iconfont iconicon_huabanfuben" },
+        { name: "归档",path: "/archive",icon: "iconfont iconyouqinglianjie "},
+        { name:"留言板",path:"/leaveMessage",icon:"iconfont iconliuyanban-05"},
+        { name: "关于", path: "/about", icon: "iconfont iconguidang" },
       ],
-      //博客对象
-      Blog: {
-        title: "",
-        logo: "",
-        favicon: "",
-        announcement: "",
-        message: "",
-      },
     };
   },
-  methods: {
-    dontClickMe(){
-      alert("按钮没做好，别点我!")
-    },
-    //获取博客信息
-    getBlogInfo() {
-      api
-        .get("/bloginfo")
-        .then((res) => {
-          this.Blog.title = res.data.blogTitle;
-          this.Blog.logo = res.data.blogLogo;
-          this.Blog.favicon = res.data.blogFavicon;
-          this.Blog.message = markdownit.render(res.data.blogMessage);
-          this.Blog.announcement = res.data.blogAnnouncement;
-        })
-    },
-    //获取最新文章
-    getNewArticle() {
-      api
-        .get("article")
-        .then((res) => {
-          this.newArticle = res.data.reverse().slice(0, 6);
-        })
-    },
-    //获取标签
-    getTag() {
-      api
-        .get("tag")
-        .then((res) => {
-          this.articleTag = res.data;
-        })
-    },
+  components: {
+    navigation,
   },
-  created() {
-    this.getBlogInfo();  
-    this.getNewArticle();
-    this.getTag();
+  computed:{
+    showWelcome(){
+      if(this.$route.path == "/"){
+        return true;
+      }
+      else{
+        return false;
+      }
+    }
   },
+  methods:{
+    toShow(){
+      window.scrollTo({
+        top:687,
+        behavior:"smooth"
+      })
+    }
+  }
 };
 </script>
 
 <style>
-.app-body {
-  /**flex布局不要设置高度 */
+.app-container {
+  font-family: "hanyi";
+  height: 100%;
   display: flex;
-  padding-top: 10px;
-  align-items: flex-start;
-  width: 100%;
+  flex-direction: column;
 }
 
-.app-body > .right-div,
-.left-div {
-  width: 18%;
-  margin: 0 20px;
-  /**防止子元素因为设置了宽度依然会被收缩 */
-  flex-shrink: 0;
+.app-container .app-head {
+  max-height: 60px;
+  z-index:1
 }
 
-.app-body > .middle-div {
+.app-container .app-body {
   flex-grow: 1;
+  background-color: rgb(246,246,246)
 }
 
-.attention-div{
-  text-align: center;
-  padding:10px 0;
+.blog-welcome{
+  height:100vh;
+  flex-shrink: 0;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  /* z-index:-1 */
 }
 
-.attention-button{
-  width:70%;
-  padding:10px;
+.blog-welcome img{
+  object-fit: cover;
 }
 
-.platform > i {
-  font-size: 25px;
-  margin: 0 7px;
+.blog-welcome .blog-name{
+  font-size:2rem;
+  position:absolute;
+  color:white;
+  font-weight: 900;
+  z-index:1
+}
+
+.index{
+  position:absolute;
+  background:transparent
+}
+
+.index a{
+  color:white
+}
+
+.other{
+  background-color:white;
+  position:sticky;
+  top:0;
+}
+
+.img-cover{
+  background-color: rgba(0,0,0,.2);
+  height: 100%;
+  width:100%;
+  position:absolute;
+}
+
+.to-bottom{
+  z-index: 1;
+  position:absolute;
+  bottom:20px;
+  color:white;
+  animation:up_and_down 2s;
+  /**动画播放次数无限 */
+  animation-iteration-count: infinite;
+  /* 播放完再反向播放 */
+  animation-direction: alternate;
+}
+
+.to-bottom i {
+  font-size: 2.6rem;
   cursor: pointer;
 }
 
-.platform {
-  text-align: center;
+@keyframes up_and_down {
+  from{
+    transform: translate(0,0);
+  }
+  to{
+    transform: translate(0,15px);
+  }
 }
-
-.index-logo{
-  display:flex;
-  justify-content: center;
-  align-items: center;
-  padding:20px 0;
-}
-
-.left-show{
-  height:300px;
-}
-
 </style>

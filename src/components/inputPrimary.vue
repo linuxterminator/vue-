@@ -40,4 +40,11 @@ export default {
 .input-name {
   margin: 5px 0;
 }
+
+@media screen and (max-width: 375px){
+  .input-container input{
+    width:55px !important;
+    height:20px !important;
+  }
+}
 </style>

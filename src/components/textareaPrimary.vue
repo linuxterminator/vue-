@@ -41,4 +41,11 @@ export default {
 .textarea-name {
   margin: 5px 0;
 }
+
+@media screen and (max-width: 375px){
+  .textarea-container textarea{
+    width:220px !important;
+    height:80px !important;
+  }
+}
 </style>

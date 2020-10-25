@@ -8,7 +8,6 @@ import textareaPrimary from "@/components/textareaPrimary"
 Vue.component("input-primary",inputPrimary)
 Vue.component("textarea-primary",textareaPrimary)
 
-
 //打字机
 import VueTypedJs from 'vue-typed-js'
 Vue.use(VueTypedJs)

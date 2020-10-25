@@ -39,9 +39,9 @@ export default {
   data() {
     return {
       list:[
-        {name:"文章数",data:""},
+        {name:"文章数",data:0},
         {name:"友链数",data:0},
-        {name:"标签数",data:""},
+        {name:"标签数",data:0},
         {name:"留言数",data:0},
       ]
     };
@@ -58,10 +58,16 @@ export default {
     getTagNumber(){
         api.get("tag").then((res)=>{this.list[2].data=res.data.length})
     },
+    getAllLeaveMessage(){
+      api.get("leaveMessage").then((res)=>{
+        console.log(res.data.length)
+        this.list[3].data=res.data.length})
+    }
   },
   created(){
     this.getArticleNumber();
     this.getTagNumber();
+    this.getAllLeaveMessage()
   }
 };
 </script>

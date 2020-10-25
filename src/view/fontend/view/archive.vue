@@ -1,22 +1,24 @@
 <template>
 <div class="archive-container">
+  
   <div class="archive-title">
       <vue-typed-js :strings="['时间轴']" :typeSpeed="150">
         <span class="typing"></span>
       </vue-typed-js>
   </div>
-  <div class="container archive">
+
+  <div class="container archive-body">
     <div class="timeLine">
       <div
         v-for="(item, index) in ArticleList"
         :key="index"
-        class="timeLineItem"
-      >
+        class="timeLineItem">
         <div>{{ item.title }}</div>
         <div>{{ item.createdate }}</div>
       </div>
     </div>
   </div>
+
 </div>
 </template>
 
@@ -48,13 +50,25 @@ export default {
 
 <style>
 .archive-container{
-  width:100%
+  width:100%;
+  padding:20px;
+  overflow:auto;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.archive {
-  padding: 10px;
-  margin: 10px 170px 10px 170px;
-  padding:20px 30px;
+.archive-title{
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  height: 150px;
+  width:100%;
+}
+
+.archive-body {
+  padding: 20px;
+  width:1000px;
 }
 
 .timeLine {
@@ -81,15 +95,14 @@ export default {
   top: 10px;
 }
 
-.archive-title{
-  display:flex;
-  align-items: center;
-  justify-content: center;
-  height: 150px;
-}
-
 .archive-title span{
   font-size: 2.1rem;
   font-weight: 900;
+}
+
+@media screen and (max-width: 375px){
+  .archive-body{
+    width:250px;
+  }
 }
 </style>
