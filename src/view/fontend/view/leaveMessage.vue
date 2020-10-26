@@ -25,7 +25,7 @@
             <div v-for="(item,index) in leaveMessageList" :key="index" class="root-message">
                 <div class="root-message-head">
                     <span class="message-user-name">{{item.name}}</span>
-                    <span class="message-date">{{item.leaveDate}}</span>
+                    <span class="message-date">{{item.leaveDate | dateFormat}}</span>
                 </div>
                 <div class="root-message-body">
                     <p class="content">{{item.message}}<span class="add-reply" @click="addReply()">回复</span></p>
@@ -33,7 +33,7 @@
                 <div v-for="(sub,index) in item.subMessage" :key="index" class="sub-message">
                     <div class="sub-message-head">
                         <span class="message-user-name">{{sub.name}}</span>
-                        <span class="message-date">{{sub.leaveDate}}  </span>
+                        <span class="message-date">{{sub.leaveDate | dateFormat}}  </span>
                     </div>
                     <div class="sub-message-body">
                         <p class="content"><span class="sub-reply">@{{sub.leaveToName}}</span>:{{sub.message}}<span class="add-reply" @click="addReply()">回复</span></p>
@@ -79,6 +79,11 @@ export default {
                 messageToId:0,
                 leaveToName:""
             }   
+        }
+    },
+    filters:{
+        dateFormat(value){
+            return value.slice(0,12)
         }
     },
     methods:{

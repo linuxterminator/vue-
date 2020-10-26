@@ -40,8 +40,16 @@
           <ul>
             <li v-for="(item,index) in newArticle" :key="index">
               <router-link :to="/page/+item.title" tag="div">
-                <span>{{item.title}}</span>
+                <div class="art-img">
+                  <img :src="item.img" alt="博客封面">
+                </div>
               </router-link>
+              <div class="art-body">
+                <div>{{item.createdate | dateFormat}}</div>
+                <router-link :to="/page/+item.title" tag="div">
+                  <span>{{item.title}}</span>
+                </router-link>
+              </div>
             </li>
           </ul>
       </div>
@@ -92,6 +100,11 @@ export default {
         message: "",
       },
     };
+  },
+  filters:{
+    dateFormat(value){
+      return value.slice(0,12)
+    }
   },
   methods: {
     dontClickMe(){
@@ -185,6 +198,11 @@ export default {
 .left-show{
   height:300px;
 }
+
+.blog-announcement p{
+  font-weight: 600;
+}
+
 .blog-announcement .announcement-title,.new-article-title,.tag-title{
   font-size:1.1rem;
   font-weight: 600;
@@ -195,9 +213,38 @@ export default {
   margin-bottom:10px
 }
 
+.new-article ul{
+  padding-left:10px;
+}
+
+.new-article .art-body{
+  flex-grow: 1;
+}
+
+.new-article .art-img{
+  width:60px;
+  height:60px;
+}
+
+.art-img img{
+  object-fit: cover;  
+  width:100%;
+  height: 100%;
+}
+
+.new-article .art-body{
+  padding-left: 10px;
+}
+
+.new-article{
+  font-size: 0.7rem;
+}
+
 .new-article li{
   margin:10px 0;
   cursor: pointer;
+  height:60px;
+  display:flex;
 }
 
 .container .name{

@@ -31,6 +31,7 @@ export default {
 .navigation span {
   font-size: 1rem;
   padding: 0 10px;
+  font-weight: 600;
 }
 
 .navigation a {
@@ -49,10 +50,10 @@ export default {
 
 @media screen and (max-width: 375px){
   .navigation{
-    padding:5px
+    padding:5px;
   }
   .navigation a{
-    padding:5px
+    padding:5px;
   }
 }
 </style>

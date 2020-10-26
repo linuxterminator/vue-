@@ -1,36 +1,38 @@
 <template>
-  <!--文章列表组件-->
+
   <div class="articleList">
     <div
       v-for="(item, index) in articleList"
       :key="index"
       class="article-item container"
     >
-      <!--封面-->
+
       <div class="articleCover">
         <img :src="item.img" alt="文章封面" />
       </div>
-      <article>
-        <!--标题-->
-        <header>
-          <span>{{ item.title }}</span>
-        </header>
-        <!--主体-->
-        <p @click="toPage(item.title)" class="text-blue">
-          {{ item.introduction }}
-        </p>
-        <!--页脚-->
-        <footer>
-          <span>
-            <i class="iconfont iconriqi" style="font-size: 1px"></i>
-            <span>{{ item.createdate }}</span>
-          </span>
-          <span v-for="(item, index) in item.tagList" :key="index">
-            <i class="iconfont iconicon-test" style="font-size: 1px"></i>
-            {{ item.tagName }}
-          </span>
-        </footer>
+
+      <div class="article-body">
+          <article>
+            <header>
+                <span>{{ item.title }}</span>
+            </header>
+            <div class="article-date-tag">
+                <span class="article-date">
+                  <i class="iconfont iconshijian"></i>
+                  <span>{{ item.createdate | dateFormat}} | </span>
+                </span>
+                <span v-for="(item, index) in item.tagList" :key="index" class="article-tag">
+                  {{ item.tagName }}
+                </span>
+            </div>
+
+            <div @click="toPage(item.title)" class="article-content">
+              <span>{{ item.introduction }}</span>
+            </div>
+
       </article>
+      </div>
+
     </div>
   </div>
 </template>
@@ -48,19 +50,15 @@ export default {
     },
   },
   props: ["articleList"],
+  filters:{
+    dateFormat(value){
+      return value.slice(0,12)
+    }
+  }
 };
 </script>
 
 <style>
-header h3 {
-  margin: 10px 0;
-}
-
-.articleList footer span {
-  font-size: 9px;
-  margin-right: 10px;
-  cursor: pointer;
-}
 
 .article-item {
   width: 100%;
@@ -83,37 +81,54 @@ header h3 {
   object-fit: cover;
 }
 
-.articleList article {
-  display: flex;
+.article-body{
+  flex-grow: 1;
+  flex-shrink: 0;
+  padding:45px 0 20px 35px;
+  display:flex;
+}
+
+.article-body header {
+  height: 30px;
+  text-align: left;
+  font-size: 1.4rem;
+  line-height: 30px;
+}
+
+.article-body .article-date-tag{
+  font-size:0.9rem;
+  height:30px;
+  margin:3px 0;
+}
+
+.article-body article{
+  flex-grow: 1;
+  flex-shrink: 0;
+  display:flex;
   flex-direction: column;
-  flex-grow: 1;
-  height: 100%;
 }
 
-.article-item header {
-  height: 20%;
+.article-body .article-content {
   text-align: left;
-  overflow: hidden;
-  margin-bottom: 10px;
-  margin-top: 10px;
-  padding: 0 15px;
-  font-size: 1.5rem;
-  color:#3273dc
-}
-
-article p {
-  text-align: left;
-  flex-grow: 1;
+  /* width:400px; */
   margin: 0;
   cursor: pointer;
-  padding: 0 15px;
-  font-size: 1rem;
+  font-size: 0.9rem;
+  width:460px;
+  color:rgba(0,0,0,0.6);
 }
 
-article footer {
-  height: 15%;
-  line-height: 35px;
-  padding: 0 15px;
+.article-date i{
+  color:rgba(0,0,0,0.5);
+}
+
+.article-date span{
+  color:rgba(0,0,0,0.5);
+}
+
+.article-body .article-tag{
+  margin:0 4px;
+  color:rgba(0,0,0,0.5);
 }
 
 @media screen and (max-width: 400px) {

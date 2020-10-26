@@ -8,6 +8,7 @@
 /*直接使用*来设置所有字体都为这个字体*/
 *{
   font-family: "hanyi";
+  font-weight: 600;
 }
 
 ul{
