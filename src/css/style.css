@@ -1,163 +1,37 @@
-@font-face{
-  font-family:"hanyi";
-  src: url(../font/HYLiangPinXianJ.ttf)
+/* 字体以及加载顺序是怎样的 */
+*{
+  font-family: Tahoma,Helvetica,"microsoft yahei","Hiragino Sans GB",Simsun,\5b8b\4f53,sans-serif;;
 }
 
-/*不知道为什么明明在app.vue里面写了还是不行*/
+h1,h2,h3,h4,h5,h6{
+  font-weight: 300px;
+}
 
-/*直接使用*来设置所有字体都为这个字体*/
+/* 阿里图标 */
+.icon {
+  width: 1em; height: 1em;
+  vertical-align: -0.15em;
+  fill: currentColor;
+  overflow: hidden;
+}
+
+html,body{
+  background-color: #f5f7fd;
+  height:100%;
+  padding:0px;
+  margin:0px;
+  /* overflow:auto; */
+}
+
 *{
-  font-family: "hanyi";
-  font-weight: 600;
+  color:#4A4A4A;
+}
+
+a{
+  text-decoration: none;
 }
 
 ul{
-  list-style: none;
-}
-
-li{
-  padding:5px;
-}
-
-span{
-  display:inline-block
-}
-
-li > span{
-  cursor: pointer;
-}
-
-/*容器外观和背景颜色和圆角*/
-.container{
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05), 0 0 1px rgba(0, 0, 0, 0.1);
-  border-radius: 3px;
-  background-color: rgba(255, 255, 255, 0.85);
-}
-
-/**给容器添加内边距*/
-.addpadding{
-  padding:10px;
-}
-
-/*字体悬浮颜色*/
-.text-blue:hover{
-  color:#3273dc
-  
-}
-
-/*标签*/
-.tagDiv{
-  display:inline-block;
-  border-radius: 4px;
-  border: 1px solid rgba(0, 0, 0, 0);
-  background: #409eff;
-  margin:2px 3px;
-  padding:1px 2px;
-  color:white;
-  cursor: pointer;
-}
-
-/*输入框*/
-.input-primary {
-  outline: none;
-  border-radius: 4px;
-  border: 1px solid #cad1d7;
-}
-
-.input-primary:focus{
-  border-color: #409eff;
-}
-
-/*禁止拖动*/
-textarea{
-  resize: none;
-}
-
-input{
-  outline:none
-}
-
-/*按钮*/
-.main-button {
-  border-radius: 4px;
-  border: 1px solid rgba(0, 0, 0, 0);
-  letter-spacing: 3px;
-  background: #409eff;
-  color: white;
-  cursor: pointer;
-  outline: none;
-  padding:5px;
-}
-
-/*editorButton*/
-.editorButton{
-  border-radius: 4px;
-  background:#67C23A;
-  outline: none;
-  color: white;
-  border: 1px solid rgba(0, 0, 0, 0);
-  padding:5px;
-  margin:0 3px;
-  cursor: pointer;
-}
-/*deleteButton*/
-.deleteButton{
-  border-radius: 4px;
-  background:#F56C6C;
-  outline: none;
-  color: white;
-  border: 1px solid rgba(0, 0, 0, 0);
-  padding:5px;
-  margin:0 3px;
-  cursor: pointer;
-}
-
-/*代码圆角*/
-/*由于一个元素一般只能设置一个::before，所以需要子元素的支持才能画三个圆，而且父元素需要相对定位，子元素再绝对定位
-脱离文档流，这样就不会产生以外问题*/
-pre{
-  /*必须设置border才能设置border-radius?,设置边框完全不透明*/
-  border:1px solid rgba(0, 0, 0, 0);
-  border-radius: 7px;
-  overflow: hidden;
-  padding-top:30px;
-  background: #21252b;
-  position: relative;
-  box-shadow: 0 0px 16px 0px rgba(0,0,0,.4);
-}
-
-pre::before{
-  content: "";
-  width:12px;
-  height: 12px;
-  background:#fc625d;
-  border-radius: 50%;
-  position: absolute;
-  top:10px;
-  left:10px;
-  line-height: 12px;
-}
-
-pre::after{
-  content: "";
-  width:12px;
-  height: 12px;
-  background:#fdbc40;
-  border-radius: 50%;
-  position: absolute;
-  line-height: 12px;
-  top:10px;
-  left:33px;
-}
-
-code::before{
-  content: "";
-  width:12px;
-  height: 12px;
-  background:#35cd4b;
-  border-radius: 50%;
-  position: absolute;
-  line-height: 12px;
-  top:10px;
-  left:57px;
+  padding:0;
+  margin:0;
 }

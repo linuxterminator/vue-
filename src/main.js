@@ -2,16 +2,9 @@ import Vue from "vue";
 import App from "./App.vue";
 import VueRouter from "vue-router";
 
-//全局组件
-import inputPrimary from "@/components/inputPrimary"
-import textareaPrimary from "@/components/textareaPrimary"
-Vue.component("input-primary",inputPrimary)
-Vue.component("textarea-primary",textareaPrimary)
-
 //打字机
 import VueTypedJs from 'vue-typed-js'
 Vue.use(VueTypedJs)
-
 
 //引入自己的全局css
 import "./css/style.css";

@@ -1,11 +1,11 @@
 <template>
-    <div id="pieChart"></div>
+      <div id="barChart"></div>
 </template>
 
 <script>
 // import "../../../node_modules/echarts/theme/azul"
 import echarts from "echarts";
-import {api} from "@/api/http"
+import api from "@/api/http"
 export default {
     data(){
         return{
@@ -16,29 +16,44 @@ export default {
         }
     },
     methods:{
-        setPieCharts(){
-            var myChart = echarts.init(document.getElementById('pieChart'),"azul");
+        setBarCharts(){
+            var myChart = echarts.init(document.getElementById('barChart'),"azul");
             let option = {
-                //鼠标悬浮显示
+                //鼠标悬浮显示信息
                 tooltip:{
-                },
-                legend: {
-                    data:this.tagNameList
+                    //悬浮添加阴影
+                    trigger: 'axis',
+                    axisPointer: {            
+                        type: 'shadow'       
+                    }
                 },
                 title:{
-                    subtext:"标签信息",
-                    //title距离左边和底部的距离
-                    left:"center",
-                    bottom:"10px"
+                    subtext:"文章信息",
                 },
-                series: [{
-                    //name是做什么用的
-                    name: '销量',
-                    type: 'pie',
-                    data: this.tagNumber,
-                    //圆大小
-                    radius:'47%',
-                }]
+                //x轴
+                xAxis: [
+                    //类型，分类轴
+                    {
+                        type: 'category',
+                        data: this.tagNameList,
+                    }
+                        ],
+                //y轴
+                yAxis: [
+                    //类型，数值轴
+                    {
+                        type: 'value'
+                    }
+                ],
+                series: [
+                    {
+                        //name好像没什么作用
+                        name: '直接访问',
+                        type: 'bar',
+                        barWidth: '40%',
+                        data: this.tagNumber
+                    }
+                ]
             };
             myChart.setOption(option);
         },
@@ -62,7 +77,7 @@ export default {
                     let temObject = {name:tagName,value:res.data.length}
                     this.tagNumber.push(temObject)
                     //最后根据获取数据之后在显示图表
-                this.setPieCharts()
+                this.setBarCharts()
                 })
             }
         }
@@ -75,10 +90,11 @@ export default {
 
 <style>
 
-#pieChart{
+#barChart{
     background-color: rgba(255, 255, 255, 0.85);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05), 0 0 1px rgba(0, 0, 0, 0.1);
-    height:100%;
     width:100%;
+    height:100%;
 }
+
 </style>

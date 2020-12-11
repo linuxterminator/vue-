@@ -1,22 +1,17 @@
 <template>
-  <div class="page container">
-    <ShowPage :Article="article" />
+  <div class="page" v-html="article">
   </div>
 </template>
 
 <script>
 //展示文章
 import { markdownit } from "@/markdownit";
-import { api } from "@/api/http";
-import ShowPage from "@/components/ShowPage";
+import api from "@/api/http";
 export default {
   data() {
     return {
       article: "",
     };
-  },
-  components: {
-    ShowPage,
   },
   methods: {
     //展示文章
@@ -27,9 +22,6 @@ export default {
           this.article = res.data;
           this.article = markdownit.render(res.data.content);
         })
-        .catch((err) => {
-          console.log(err);
-        });
     },
   },
   created() {
@@ -38,10 +30,13 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
+@import "../../css/style.scss";
 .page {
   flex-grow: 1;
   overflow: hidden;
+  padding:30px;
+  @include container;
 }
 
 .page article {

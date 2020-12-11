@@ -1,39 +1,24 @@
 <template>
   <div class="aboutme">
-
-    <div class="about-title">
-      <vue-typed-js :strings="['关于我']" :typeSpeed="150">
-        <span class="typing"></span>
-      </vue-typed-js>
-    </div>
-
     <div class="container showBlogMessage">
-      <div class="blog-logo">
-        <Logo :logourl="blogLogo" />
-      </div>
-      <div class="logo-info">
-        <ShowPage :Article="blogMessage" />
-      </div>
-    </div>
-
+        <div class="about-title">
+        <vue-typed-js :strings="['关于我']" :typeSpeed="150">
+          <span class="typing"></span>
+        </vue-typed-js>
+        </div>
+        </div>
   </div>
 </template>
 <script>
 //关于我
-import ShowPage from "@/components/ShowPage";
-import Logo from "@/components/Logo";
 import { markdownit } from "@/markdownit";
-import { api } from "@/api/http";
+import api from "@/api/http";
 export default {
   data() {
     return {
       blogMessage: "",
       blogLogo: "",
     };
-  },
-  components: {
-    ShowPage,
-    Logo,
   },
   methods: {
     getBlogInfo() {
@@ -56,20 +41,18 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
+@import "../../css/style.scss";
 .aboutme {
   width:100%;
-  display:flex;
-  flex-direction: column;
   align-items: center;
-  padding:20px;
-  overflow:auto
+  overflow:auto;
+  @include container;
 }
 
 .showBlogMessage {
-  width:1000px;
   padding:20px;
-  min-height: 540px;
+  /* min-height: 540px; */
 }
 
 .blog-logo{

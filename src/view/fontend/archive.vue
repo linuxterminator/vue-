@@ -1,13 +1,11 @@
 <template>
 <div class="archive-container">
-  
-  <div class="archive-title">
+  <div class="container archive-body">
+    <div class="archive-title">
       <vue-typed-js :strings="['时间轴']" :typeSpeed="150">
         <span class="typing"></span>
       </vue-typed-js>
-  </div>
-
-  <div class="container archive-body">
+    </div>
     <div class="timeLine">
       <div
         v-for="(item, index) in ArticleList"
@@ -23,7 +21,7 @@
 </template>
 
 <script>
-import { api } from "@/api/http";
+import api from "@/api/http";
 export default {
   data() {
     return {
@@ -48,14 +46,15 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
+@import "../../css/style.scss";
 .archive-container{
   width:100%;
-  padding:20px;
   overflow:auto;
   display:flex;
   flex-direction: column;
   align-items: center;
+  @include container;
 }
 
 .archive-title{
@@ -68,7 +67,6 @@ export default {
 
 .archive-body {
   padding: 20px;
-  width:1000px;
 }
 
 .timeLine {

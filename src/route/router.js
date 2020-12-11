@@ -1,33 +1,18 @@
 //前台
-import home from "@/view/fontend/view/home";
+import home from "@/view/fontend/home";
 import page from "@/view/fontend/page";
 import articleList from "@/view/fontend/articleList";
-import about from "@/view/fontend/view/about"
-import tagArticle from "@/view/fontend/tagArticle"
-import archive from "@/view/fontend/view/archive"
-import index from "@/view/fontend/index"
-import leaveMessage from "@/view/fontend/view/leaveMessage";
+import about from "@/view/fontend/about"
+import archive from "@/view/fontend/archive"
+import index from "@/view/index"
 
 //管理
 import adminIndex from "@/view/admin/index"
-import write from "@/view/admin/view/write"
-import managehome from "@/view/admin/view/home"
-import bloginfo from "@/view/admin/view/bloginfo"
-import articleTable from "@/view/admin/view/articleTable"
-import messageManage from "@/view/admin/view/messageManage"
-
-//路由结构
-//  +app
-//      +home   网站根页面 "/""
-//          ++index 默认加载的首页 ""
-//              +articleList 首页展示文章 
-//              +page:id 展示具体文章
-//              +tagArticle 展示标签下的文章
-//          +about 关于
-//          +archive 归档
-//      +admin  后台页面 "/admin"
-//          ++managehome 默认加载的后台首页  ""
-//          ++write 写博文
+import write from "@/view/admin/write"
+import managehome from "@/view/admin/home"
+import bloginfo from "@/view/admin/bloginfo"
+import articleTable from "@/view/admin/articleTable"
+import messageManage from "@/view/admin/messageManage"
 
 let routes = [
   {
@@ -45,26 +30,18 @@ let routes = [
             component: articleList,
           },
           {
-            path: "tagArticle/:tagId",
-            component: tagArticle
-          },
-          {
             path: "page/:articleId",
             component: page,
           },
+          {
+            path: "archive",
+            component: archive
+          },
+          {
+            path: "/about",
+            component: about
+          },
         ]
-      },
-      {
-        path:"leaveMessage",
-        component:leaveMessage
-      },
-      {
-        path: "archive",
-        component: archive
-      },
-      {
-        path: "/about",
-        component: about
       },
     ],
   },

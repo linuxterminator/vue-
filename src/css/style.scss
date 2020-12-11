@@ -1,0 +1,31 @@
+// 全局style
+@mixin container {
+    border:1px solid #F0F2F7;
+    background-color: #fff;
+    box-shadow: 0 1px 1px 0 rgba(0,0,0,.05);
+    border-radius: 4px;
+}
+
+@mixin tag{
+    border:1px solid #EEEEEE;
+    border-radius: 3px;
+    padding:1px 5px;
+    background-color: #EEEEEE;
+    cursor: pointer;
+}
+
+ul{
+    list-style: none;
+}
+
+button{
+    outline:none;
+    border:1px solid black;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+input{
+    outline:none;
+}
+

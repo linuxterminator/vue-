@@ -1,0 +1,70 @@
+Date : 2020-12-09 11:38:06
+Directory : /Users/huqingshan/code/vue/hqs-blog
+Total : 30 files,  13902 codes, 71 comments, 189 blanks, all 14162 lines
+
+Languages
++------------+------------+------------+------------+------------+------------+
+| language   | files      | code       | comment    | blank      | total      |
++------------+------------+------------+------------+------------+------------+
+| JSON       |          2 |     12,184 |          0 |          2 |     12,186 |
+| Vue.js     |         19 |      1,476 |         41 |        137 |      1,654 |
+| JavaScript |          6 |        122 |         16 |         23 |        161 |
+| CSS        |          1 |         72 |          9 |         12 |         93 |
+| HTML       |          1 |         28 |          5 |          3 |         36 |
+| Markdown   |          1 |         20 |          0 |         12 |         32 |
++------------+------------+------------+------------+------------+------------+
+
+Directories
++---------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                      | files      | code       | comment    | blank      | total      |
++---------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                         |         30 |     13,902 |         71 |        189 |     14,162 |
+| public                                                                    |          1 |         28 |          5 |          3 |         36 |
+| src                                                                       |         24 |      1,658 |         66 |        171 |      1,895 |
+| src/api                                                                   |          1 |          7 |          3 |          6 |         16 |
+| src/components                                                            |          6 |        327 |         25 |         21 |        373 |
+| src/components/echarts                                                    |          2 |        152 |         25 |          7 |        184 |
+| src/css                                                                   |          1 |         72 |          9 |         12 |         93 |
+| src/route                                                                 |          1 |         69 |          4 |          4 |         77 |
+| src/view                                                                  |         12 |      1,134 |         16 |        113 |      1,263 |
+| src/view/admin                                                            |          6 |        535 |          9 |         43 |        587 |
+| src/view/admin/view                                                       |          5 |        417 |          8 |         25 |        450 |
+| src/view/fontend                                                          |          5 |        565 |          7 |         64 |        636 |
++---------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++---------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| filename                                                                  | language   | code       | comment    | blank      | total      |
++---------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| /Users/huqingshan/code/vue/hqs-blog/README.md                             | Markdown   |         20 |          0 |         12 |         32 |
+| /Users/huqingshan/code/vue/hqs-blog/babel.config.js                       | JavaScript |          5 |          0 |          1 |          6 |
+| /Users/huqingshan/code/vue/hqs-blog/package-lock.json                     | JSON       |     12,133 |          0 |          1 |     12,134 |
+| /Users/huqingshan/code/vue/hqs-blog/package.json                          | JSON       |         51 |          0 |          1 |         52 |
+| /Users/huqingshan/code/vue/hqs-blog/public/index.html                     | HTML       |         28 |          5 |          3 |         36 |
+| /Users/huqingshan/code/vue/hqs-blog/src/App.vue                           | Vue.js     |         15 |          0 |          3 |         18 |
+| /Users/huqingshan/code/vue/hqs-blog/src/api/http.js                       | JavaScript |          7 |          3 |          6 |         16 |
+| /Users/huqingshan/code/vue/hqs-blog/src/components/articleTable.vue       | Vue.js     |         56 |          0 |          6 |         62 |
+| /Users/huqingshan/code/vue/hqs-blog/src/components/checkboxPrimary.vue    | Vue.js     |         25 |          0 |          1 |         26 |
+| /Users/huqingshan/code/vue/hqs-blog/src/components/echarts/barChart.vue   | Vue.js     |         82 |         14 |          4 |        100 |
+| /Users/huqingshan/code/vue/hqs-blog/src/components/echarts/pieChart.vue   | Vue.js     |         70 |         11 |          3 |         84 |
+| /Users/huqingshan/code/vue/hqs-blog/src/components/inputPrimary.vue       | Vue.js     |         47 |          0 |          3 |         50 |
+| /Users/huqingshan/code/vue/hqs-blog/src/components/textareaPrimary.vue    | Vue.js     |         47 |          0 |          4 |         51 |
+| /Users/huqingshan/code/vue/hqs-blog/src/css/style.css                     | CSS        |         72 |          9 |         12 |         93 |
+| /Users/huqingshan/code/vue/hqs-blog/src/main.js                           | JavaScript |         29 |          6 |          8 |         43 |
+| /Users/huqingshan/code/vue/hqs-blog/src/markdownit.js                     | JavaScript |          5 |          3 |          4 |         12 |
+| /Users/huqingshan/code/vue/hqs-blog/src/route/router.js                   | JavaScript |         69 |          4 |          4 |         77 |
+| /Users/huqingshan/code/vue/hqs-blog/src/view/admin/index.vue              | Vue.js     |        118 |          1 |         18 |        137 |
+| /Users/huqingshan/code/vue/hqs-blog/src/view/admin/view/articleTable.vue  | Vue.js     |         46 |          0 |          3 |         49 |
+| /Users/huqingshan/code/vue/hqs-blog/src/view/admin/view/bloginfo.vue      | Vue.js     |        105 |          0 |          2 |        107 |
+| /Users/huqingshan/code/vue/hqs-blog/src/view/admin/view/home.vue          | Vue.js     |        128 |          0 |         13 |        141 |
+| /Users/huqingshan/code/vue/hqs-blog/src/view/admin/view/messageManage.vue | Vue.js     |         11 |          0 |          4 |         15 |
+| /Users/huqingshan/code/vue/hqs-blog/src/view/admin/view/write.vue         | Vue.js     |        127 |          8 |          3 |        138 |
+| /Users/huqingshan/code/vue/hqs-blog/src/view/fontend/about.vue            | Vue.js     |         73 |          2 |          6 |         81 |
+| /Users/huqingshan/code/vue/hqs-blog/src/view/fontend/archive.vue          | Vue.js     |         95 |          0 |         10 |        105 |
+| /Users/huqingshan/code/vue/hqs-blog/src/view/fontend/articleList.vue      | Vue.js     |        151 |          1 |         18 |        170 |
+| /Users/huqingshan/code/vue/hqs-blog/src/view/fontend/home.vue             | Vue.js     |        205 |          2 |         25 |        232 |
+| /Users/huqingshan/code/vue/hqs-blog/src/view/fontend/page.vue             | Vue.js     |         41 |          2 |          5 |         48 |
+| /Users/huqingshan/code/vue/hqs-blog/src/view/index.vue                    | Vue.js     |         34 |          0 |          6 |         40 |
+| /Users/huqingshan/code/vue/hqs-blog/vue.config.js                         | JavaScript |          7 |          0 |          0 |          7 |
+| Total                                                                     |            |     13,902 |         71 |        189 |     14,162 |
++---------------------------------------------------------------------------+------------+------------+------------+------------+------------+
