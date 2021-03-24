@@ -1,95 +1,65 @@
 <template>
-  <div class="admin">
-    <header></header>
-    <div class="chart-all">
-      <div class="admin-chart-pie">
-        <pieChart/>
-      </div>
-      <div class="admin-chart-bar">
-        <barChart/>
-      </div>
+  <div class="manage">
+      <div class="manage-left">
+          <span class="manage-title">hello</span>
+          <aside>
+              <ul>
+                  <li v-for="(item, index) in navList" :key="index">
+                    <router-link :to="item.path" class="not-active">
+                      <span class="nav-item">{{ item.title }}</span>
+                    </router-link>
+                  </li>
+              </ul>
+          </aside>
     </div>
+
+    <div class="manage-right">
+        <header></header>
+
+        <div class="manage-right-body">
+          <div class="bread-nav">
+            <span 
+            v-for="(item,index) in router_matched" 
+            :key="index"
+            @click="to_page(item.path)">{{item.meta.page_name}}/
+            </span>
+          </div>
+          <router-view></router-view>
+        </div>
+    </div>
+
   </div>
 </template>
 
 <script>
-import pieChart from "@/echarts/pieChart";
-import barChart from "@/echarts/barChart"
 export default {
-  data() {
-    return {};
+  data:function() {
+    return {
+      navList: [
+        { path: "/huqingshan", title: "首页"},
+        { path: "/huqingshan/articleTable", title: "文章列表"},
+        { path: "/huqingshan/write", title: "markdown"},
+        { path: "/huqingshan/messageManage", title: "留言"},
+        { path: "/huqingshan/bloginfo", title: "设置"},
+      ],
+    };
   },
-  components:{
-    pieChart,
-    barChart
+  methods:{
+    to_page:function(meta){
+      this.$router.push(meta)
+    }
+  },
+  computed:{
+    // $route是当前路由对象
+    router_matched:function(){
+      return this.$route.matched
+    },
+    // $router是vuerouter对象，options是我们设置vuerouter提供的参数，在router.js文件中
+    route_nav:function(){
+      return this.$router.options.routes[2].children;
+    }
   },
 };
 </script>
 
-<style lang="scss">
-@import "../../css/style.scss";
-.admin{
-  padding:10px;
-  header{
-    min-height: 150px;
-    margin-bottom: 17px;
-    @include container}
-}
-
-.admin-info-head{
-  height:40px;
-  flex-shrink: 0;
-}
-
-.admin-info-body{
-  display:flex;
-  flex-grow: 1;
-  flex-shrink: 0;
-}
-
-.admin-info-body-logo{
-  display:flex;
-  justify-content: center;
-  align-items: center;
-  width:200px;
-}
-
-.admin-info-body-hello{
-  width:230px;
-  padding-top:40px;
-  font-size:1.5rem;
-} 
-
-.admin-info-body-list{
-  flex-grow: 1;
-  padding:60px 10px 10px 10px;
-  display:flex;
-  justify-content: flex-end;
-  text-align: center;
-}
-
-.admin-info-body-item{
-  font-size:1.5rem;
-  margin:10px;
-  display:flex;
-  flex-direction: column;
-}
-
-.item{
-  margin:5px 0;
-}
-
-.chart-all{
-  display:flex;
-}
-
-.admin-chart-pie{
-  width:350px;
-  height:310px;
-  margin-right:20px;
-}
-
-.admin-chart-bar{
-  flex-grow: 1;
-}
-</style>
+<style src="@/style/web/admin/index.scss" lang="scss" scoped></style>

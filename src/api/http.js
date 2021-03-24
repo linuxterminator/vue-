@@ -7,4 +7,3 @@ let config = {
 let api = axios.create(config);
 
 export default api;
-

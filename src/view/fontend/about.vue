@@ -42,12 +42,10 @@ export default {
 </script>
 
 <style lang="scss">
-@import "../../css/style.scss";
 .aboutme {
   width:100%;
   align-items: center;
   overflow:auto;
-  @include container;
 }
 
 .showBlogMessage {

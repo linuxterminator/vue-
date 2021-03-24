@@ -47,14 +47,12 @@ export default {
 </script>
 
 <style lang="scss">
-@import "../../css/style.scss";
 .archive-container{
   width:100%;
   overflow:auto;
   display:flex;
   flex-direction: column;
   align-items: center;
-  @include container;
 }
 
 .archive-title{

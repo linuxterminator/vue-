@@ -1,76 +1,65 @@
-//前台
-import home from "@/view/fontend/home";
-import page from "@/view/fontend/page";
-import articleList from "@/view/fontend/articleList";
-import about from "@/view/fontend/about"
-import archive from "@/view/fontend/archive"
-import index from "@/view/index"
-
-//管理
-import adminIndex from "@/view/admin/index"
-import write from "@/view/admin/write"
-import managehome from "@/view/admin/home"
-import bloginfo from "@/view/admin/bloginfo"
-import articleTable from "@/view/admin/articleTable"
-import messageManage from "@/view/admin/messageManage"
-
-let routes = [
-  {
+let routes = [{
     path: "/",
-    component: index,
-    //index模版里面有子路由，意味着index里面也需要router-view
-    children: [
-      //都是同级路由，home页面默认加载
-      {
-        path: "",
-        component: home,
+    component: ()=>import("@/view/fontend/home"),
         children: [
-          {
-            path: "",
-            component: articleList,
-          },
-          {
-            path: "page/:articleId",
-            component: page,
-          },
-          {
-            path: "archive",
-            component: archive
-          },
-          {
-            path: "/about",
-            component: about
-          },
+          {path: "",component: ()=>import("@/view/fontend/articleList"),},
+          {path: "page/:articleId",component: ()=>import("@/view/fontend/page"),},
+          {path: "archive",component: ()=>import("@/view/fontend/archive")},
+          {path: "about",component: ()=>import("@/view/fontend/about")},
         ]
       },
-    ],
+  {
+    path:"/login",
+    component:()=>{
+      return import("@/view/fontend/login")
+    }
   },
   {
     path: "/huqingshan",
-    component: adminIndex,
+    component: ()=>import("@/view/admin/home"),
+    meta:{page_name:"首页"},
+    // meta信息里面放了title和icon
+    // 这是import函数，不是import
+    // 箭头函数的返回值仅仅只有一个表达式的话还可以省略大括号和return
     children: [
-      {
-        path: "",
-        component: managehome
-      },
-      {
-        path: "/write",
-        component: write
-      },
-      {
-        path: "/bloginfo",
-        component: bloginfo
-      },
-      {
-        path:"/articleTable",
-        component:articleTable
-      },
-      {
-        path:"/messageManage",
-        component:messageManage
-      }
-    ]
+      {path : "",
+      component : ()=> import("@/view/admin/dashboard"),
+      meta:{page_name : "首页",icon:""}},
+
+      {path : "write",
+      component : ()=>import("@/view/admin/write"),
+      meta:{page_name : "文章编辑",icon:""}},
+
+      {path : "bloginfo",
+      component : ()=>import("@/view/admin/bloginfo"),
+      meta:{page_name : "博客信息",icon:""}},
+
+      {path : "articleTable",
+      component :()=>import("@/view/admin/articleTable"),
+      meta:{page_name : "文章列表",icon:""}},
+
+      {path : "messageManage",
+      component :()=>import("@/view/admin/messageManage"),
+      meta:{page_name : "信息管理",icon:""}}]
   }
 ];
 
 export { routes };
+
+//前台
+// import home from "@/view/fontend/home";
+// import page from "@/view/fontend/page";
+// import articleList from "@/view/fontend/articleList";
+// import about from "@/view/fontend/about"
+// import archive from "@/view/fontend/archive"
+
+//管理
+// import manage_home from "@/view/admin/home"
+// import write from "@/view/admin/write"
+// import dashboard from "@/view/admin/dashboard"
+// import bloginfo from "@/view/admin/bloginfo"
+// import articleTable from "@/view/admin/articleTable"
+// import messageManage from "@/view/admin/messageManage"
+
+//登录
+// import login from "@/view/fontend/login"

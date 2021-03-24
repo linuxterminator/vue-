@@ -2,10 +2,12 @@
       <div id="barChart"></div>
 </template>
 
-<script>
-// import "../../../node_modules/echarts/theme/azul"
-import echarts from "echarts";
+<script> 
+import * as echarts from "echarts"
 import api from "@/api/http"
+//echarts的主题并不支持es6的导入方式，里面有amd，umd等等，
+//同时，官方文档说可以在html中通过script引入，但在vue中不建议，也不可以
+// require("./dak") 名字"wonderland"
 export default {
     data(){
         return{
@@ -17,7 +19,7 @@ export default {
     },
     methods:{
         setBarCharts(){
-            var myChart = echarts.init(document.getElementById('barChart'),"azul");
+            var myChart = echarts.init(document.getElementById('barChart'));
             let option = {
                 //鼠标悬浮显示信息
                 tooltip:{
@@ -82,7 +84,7 @@ export default {
             }
         }
     },
-    mounted(){
+    mounted:function(){
         this.getTag();
     },
 }

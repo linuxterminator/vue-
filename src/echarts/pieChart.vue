@@ -3,8 +3,7 @@
 </template>
 
 <script>
-// import "../../../node_modules/echarts/theme/azul"
-import echarts from "echarts";
+import * as echarts from "echarts";
 import api from "@/api/http"
 export default {
     data(){
@@ -17,7 +16,7 @@ export default {
     },
     methods:{
         setPieCharts(){
-            var myChart = echarts.init(document.getElementById('pieChart'),"azul");
+            var myChart = echarts.init(document.getElementById('pieChart'));
             let option = {
                 //鼠标悬浮显示
                 tooltip:{

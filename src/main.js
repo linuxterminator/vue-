@@ -2,12 +2,16 @@ import Vue from "vue";
 import App from "./App.vue";
 import VueRouter from "vue-router";
 
+import ElementUI from 'element-ui';
+import 'element-ui/lib/theme-chalk/index.css';
+Vue.use(ElementUI);
+
 //打字机
 import VueTypedJs from 'vue-typed-js'
 Vue.use(VueTypedJs)
 
 //引入自己的全局css
-import "./css/style.css";
+import "@/style/web/style.scss";
 
 import { routes } from "./route/router";
 Vue.use(VueRouter);
@@ -20,13 +24,6 @@ let routerInstance = new VueRouter({
     };
   },
 });
-
-import mavonEditor from "mavon-editor";
-import "mavon-editor/dist/css/index.css";
-//引入mavon-editor的话，highlight的样式会被覆盖,应为要想使用他的样式的话，
-//你必须在样式里面加上markdown-body，这样highlight就不会被加载
-//不使用mavon-editor里的highlight外链，使用本地加载试试？
-Vue.use(mavonEditor);
 
 Vue.config.productionTip = false;
 
