@@ -10,16 +10,25 @@
         </div>
       </div>
       <div class="admin-subject-1">
-        <div>留言</div>
-        <div class="admin-subject-show">{{message}}</div>
+        <i class="el-icon-message"></i>
+        <div>
+          <span>留言</span>
+          <span class="admin-subject-show">{{message}}</span>
+        </div>
       </div>
       <div class="admin-subject-1">
-        <div>文章评论</div>
-        <div class="admin-subject-show">{{comment}}</div>
+        <i class="el-icon-chat-dot-square"></i>
+        <div>
+          <span>文章评论</span>
+          <span class="admin-subject-show">{{comment}}</span>
+        </div>
       </div>
       <div class="admin-subject-1">
-        <div>访问量</div>
-        <div class="admin-subject-show">{{view}}</div>
+        <i class="el-icon-s-data"></i>
+        <div>
+          <span>访问量</span>
+          <span class="admin-subject-show">{{view}}</span>
+        </div>
       </div>
     </header>
     <div class="chart-all">
@@ -52,4 +61,4 @@ export default {
 };
 </script>
 
-<style src="@/style/web/admin/home.scss" lang="scss" scoped></style>
+<style src="@/style/web/admin/index.scss" lang="scss" scoped></style>

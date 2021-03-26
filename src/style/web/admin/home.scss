@@ -1,88 +1,133 @@
-.admin{
-    padding:10px;
-    header{
-      min-height: 150px;
-      margin-bottom: 17px;
-      display:flex;
-      justify-content: space-between;
-      background-color: #f9f9f9;
-      .admin-subject-1{
-        background-color: #ffffff;
-        box-shadow: 0 1px 4px rgba(0, 21, 41, 0.08);
-        width:23.5%;
-        padding:18px;
-        box-sizing: border-box;
-        .admin-subject-show{
-            padding-top: 6px;
-            font-size:30px;
+.manage {
+    display: flex;
+    height: 100%;
+    .manage-left {
+        width: 15%;
+        flex-shrink: 0;
+        color: white;
+        // background: #001529;
+        background-color: #313653;
+        text-align: left;
+        display: flex;
+        flex-direction: column;
+        .manage-title {
+            height: 60px;
+            color: white;
+            display: block;
+            text-align: center;
+            line-height: 60px;
+            font-size: 30px;
         }
-        button{
-            color:#D2E3FE;
-            background-color:#16499D ;
-            border:1px solid #16499D;
-            padding:4px 7px;
-        }
-        button:hover{
-            background-color: #123e85;
-            color:#D2E3FE;
+        aside {
+            flex-grow: 1;
+            li {
+                font-size: 15px;
+                height: 50px;
+                cursor: pointer;
+                a {
+                    height: 50px;
+                    width: 100%;
+                    display: block;
+                    box-sizing: border-box;
+                    span {
+                        color: #fff;
+                    }
+                }
+            }
+            .router-link-exact-active {
+                border-left: 1px solid #409eff;
+                border-width: 3px;
+                background-color: #1e2133;
+            }
         }
     }
-      }
-  }
-  
-  .admin-info-head{
-    height:40px;
-    flex-shrink: 0;
-  }
-  
-  .admin-info-body{
-    display:flex;
+    .manage-right {
+        background-color: #f5f8fb;
+        header {
+            height: 60px;
+            line-height: 60px;
+            background: #ffffff;
+            //   background-color: #313653;
+            box-shadow: 0 1px 4px rgba(0, 21, 41, 0.08);
+            position: relative;
+            flex-shrink: 0;
+            display: flex;
+        }
+    }
+}
+
+.manage-left ul,
+li {
+    padding: 0;
+}
+
+.manage-left li {
+    line-height: 50px;
+}
+
+.manage-right {
+    background: #f9f9f9;
     flex-grow: 1;
-    flex-shrink: 0;
-  }
-  
-  .admin-info-body-logo{
-    display:flex;
-    justify-content: center;
-    align-items: center;
-    width:200px;
-  }
-  
-  .admin-info-body-hello{
-    width:230px;
-    padding-top:40px;
-    font-size:1.5rem;
-  } 
-  
-  .admin-info-body-list{
-    flex-grow: 1;
-    padding:60px 10px 10px 10px;
-    display:flex;
-    justify-content: flex-end;
-    text-align: center;
-  }
-  
-  .admin-info-body-item{
-    font-size:1.5rem;
-    margin:10px;
-    display:flex;
+    display: flex;
     flex-direction: column;
-  }
-  
-  .item{
-    margin:5px 0;
-  }
-  
-  .chart-all{
-    display:flex;
-  }
-  
-  .admin-chart-pie{
-    width:350px;
-    height:310px;
-    margin-right:20px;
-  }
-  
-  .admin-chart-bar{
+}
+
+.manage-right-body {
+    margin: 10px;
+    height: 100%;
     flex-grow: 1;
-  }
+    overflow: auto;
+    .bread-nav {
+        box-shadow: 0 1px 4px rgba(0, 21, 41, 0.08);
+        padding: 8px;
+        border-radius: 4px;
+        margin: 0 10px;
+        background: white;
+        min-height: 20px;
+        font-size: 15px;
+        span {
+            cursor: pointer;
+        }
+        span:hover {
+            color: #313653;
+        }
+    }
+}
+
+.nav-item-container {
+    i {
+        color: white;
+    }
+}
+
+/**由于如果激活添加左边框的话，会导致元素进行偏移，所有解决方案是一直添加一个透明边框 */
+.not-active {
+    border-left: 1px solid transparent;
+    border-width: 3px;
+    padding-left: 15px;
+}
+
+.nav-item {
+    position: relative;
+    left: 10px;
+}
+
+.login-info-name span {
+    cursor: pointer;
+}
+.bread-nav {
+    .bread-item {
+        display: inline-block;
+
+        span {
+            display: inline-block;
+        }
+        span:last-child {
+            margin: 0 4px;
+        }
+    }
+}
+
+.bread-nav .bread-item:last-child span:last-child {
+    display: none;
+}

@@ -1,11 +1,32 @@
-let routes = [{
+export let routes = [{
     path: "/",
+    name:"home",
     component: ()=>import("@/view/fontend/home"),
         children: [
-          {path: "",component: ()=>import("@/view/fontend/articleList"),},
-          {path: "page/:articleId",component: ()=>import("@/view/fontend/page"),},
-          {path: "archive",component: ()=>import("@/view/fontend/archive")},
-          {path: "about",component: ()=>import("@/view/fontend/about")},
+          {path: "",
+          name:"articlelist",
+          component: ()=>import("@/view/fontend/articleList"),
+          meta:{
+            page_name:"文章列表"
+          }},
+          {path: "page/:articleId",
+          name:"page",
+          component: ()=>import("@/view/fontend/page"),
+          meta:{
+            page_name:"文章"
+          }},
+          {path: "archive",
+          name:"archive",
+          component: ()=>import("@/view/fontend/archive"),
+          meta:{
+            page_name:"分类"
+          }},
+          {path: "about",
+          name:"about",
+          component: ()=>import("@/view/fontend/about"),
+          meta:{
+            page_name:"关于"
+          }},
         ]
       },
   {
@@ -16,6 +37,7 @@ let routes = [{
   },
   {
     path: "/huqingshan",
+    name:"manage",
     component: ()=>import("@/view/admin/home"),
     meta:{page_name:"首页"},
     // meta信息里面放了title和icon
@@ -23,29 +45,32 @@ let routes = [{
     // 箭头函数的返回值仅仅只有一个表达式的话还可以省略大括号和return
     children: [
       {path : "",
-      component : ()=> import("@/view/admin/dashboard"),
-      meta:{page_name : "首页",icon:""}},
-
-      {path : "write",
-      component : ()=>import("@/view/admin/write"),
-      meta:{page_name : "文章编辑",icon:""}},
-
-      {path : "bloginfo",
-      component : ()=>import("@/view/admin/bloginfo"),
-      meta:{page_name : "博客信息",icon:""}},
+      name:"dashboard",
+      component : ()=>import("@/view/admin/dashboard"),
+      meta:{page_name : "仪表盘",icon:"el-icon-menu"}},
 
       {path : "articleTable",
+      name:"articletable",
       component :()=>import("@/view/admin/articleTable"),
-      meta:{page_name : "文章列表",icon:""}},
+      meta:{page_name : "文章列表",icon:"el-icon-s-data"}},
+
+      {path : "write",
+      name:"markdownWrite",
+      component : ()=>import("@/view/admin/write"),
+      meta:{page_name : "文章编辑",icon:"el-icon-edit"}},
 
       {path : "messageManage",
+      name:"messagemanage",
       component :()=>import("@/view/admin/messageManage"),
-      meta:{page_name : "信息管理",icon:""}}]
+      meta:{page_name : "留言管理",icon:"el-icon-s-comment"}},
+
+      {path : "bloginfo",
+      name:"bloginfo",
+      component : ()=>import("@/view/admin/bloginfo"),
+      meta:{page_name : "博客信息",icon:"el-icon-setting"}},
+    ]
   }
 ];
-
-export { routes };
-
 //前台
 // import home from "@/view/fontend/home";
 // import page from "@/view/fontend/page";

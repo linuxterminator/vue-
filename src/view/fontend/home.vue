@@ -6,10 +6,10 @@
             LEN MORE
           </div>
           <router-link
-            :to="item.path"
-            v-for="(item, index) in navList"
+            :to="{name:item.name}"
+            v-for="(item, index) in router_nav"
             :key="index">
-            <span>{{ item.name }}</span>
+            <span>{{ item.meta.page_name }}</span>
           </router-link>
           <div class="home-search">
             <input type="text" placeholder="探索">
@@ -105,15 +105,6 @@ import { markdownit } from "@/markdownit";
 export default {
   data() {
     return {
-      navList: [
-        { name: "首页", path: "/"},
-        { name: "归档",path: "/archive"},
-        { name: "标签", path: "/about"},
-        { name: "留言板", path: "/about"},
-        { name: "关于", path: "/about"},
-        { name: "登录",path:"/login"},
-
-      ],
       kind:[
         "教程","资源","笔记"
       ],
@@ -137,6 +128,11 @@ export default {
   watch:{
     logo:function(value){
       this.logo = value
+    }
+  },
+  computed:{
+    router_nav:function(){
+      return this.$router.options.routes[0].children;
     }
   },
   methods: {

@@ -6,4 +6,9 @@ let config = {
 
 let api = axios.create(config);
 
+// function LoginRequest(url,data){
+//   api.post(url,data){}.then(){}
+// }
+
+
 export default api;
